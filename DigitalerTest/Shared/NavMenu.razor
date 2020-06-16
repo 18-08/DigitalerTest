@@ -16,17 +16,17 @@
         </li>
         <li class="nav-item px-3">
             <NavLink class="@id_Beziehungsfragen" href="Beziehungsfrage">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Rechtschreibung
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Beziehungsfragen
             </NavLink>
         </li>
         <li class="nav-item px-3">
             <NavLink class="@id_Entscheidungsfragen" href="Entscheidungsfragen">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Rechtschreibung
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Entscheidungsfragen
             </NavLink>
         </li>
         <li class="nav-item px-3">
             <NavLink class="@id_MathematischeKenntisse" href="MathematischeKenntnisse">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Rechtschreibung
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Mathematische Kenntnisse
             </NavLink>
         </li>
         <li class="nav-item px-3">
@@ -89,4 +89,15 @@
                 break;
         }
     }
+
+    protected override void OnInitialized()
+    {
+        MyNavigationManager.LocationChanged += OnLocationChanges;
+    }
+
+    private void OnLocationChanges(object sender, LocationChangedEventArgs e)
+    {
+
+    }
+
 }
