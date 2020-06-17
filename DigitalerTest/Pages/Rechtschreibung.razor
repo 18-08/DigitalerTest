@@ -6,59 +6,195 @@
 <form>
     <div>
         <h5>
-            Gegeben ist ein Wort, wo die richtige Schreibung herausgefunden werden muss.
+            Gegeben ist ein Wort, wo die richtige Schreibung herausgefunden werden muss. <br />
+            Beispiel:
         </h5>
     </div>
-    <div class="radiobutton">
-        <label><input type="radio" id="Akupunktur" name="Akupunktur" value="Akupunktur" /> Akupunktur</label>
-        <p>oder</p>
-        <label><input type="radio" id="Akkupunktur" name="Akupunktur" value="Akkupunktur" /> Akkupunktur</label>
-        <p>?</p>
-        <label><input type="radio" id="authorisieren" name="autorisieren" value="authorisieren" /> authorisieren</label>
-        <p>oder</p>
-        <label><input type="radio" id="autorisieren" name="autorisieren" value="autorisieren" /> autorisieren</label>
-        <p>?</p>
-        <label><input type="radio" id="Extase" name="Ekstase" value="Extase" /> Extase</label>
-        <p>oder</p>
-        <label><input type="radio" id="Ekstase" name="Ekstase" value="Ekstase" /> Ekstase</label>
-        <p>?</p>
-        <label><input type="radio" id="Griesgram" name="Griesgram" value="Griesgram" /> Griesgram</label>
-        <p>oder</p>
-        <label><input type="radio" id="Griessgram" name="Griesgram" value="Griessgram" /> Griessgram</label>
-        <p>?</p>
-        <label><input type="radio" id="prophylakse" name="prophylaxe" value="prophylakse" /> prophylakse</label>
-        <p>oder</p>
-        <label><input type="radio" id="prophylaxe" name="prophylaxe" value="prophylaxe" /> prophylaxe</label>
-        <p>?</p>
-        <label><input type="radio" id="reziprok" name="reziprok" value="reziprok" /> reziprok</label>
-        <p>oder</p>
-        <label><input type="radio" id="reziprog" name="reziprok" value="reziprog" /> reziprog</label>
-        <p>?</p>
-        <label><input type="radio" id="Silhouette" name="Silhouette" value="Silhouette" /> Silhouette</label>
-        <p>oder</p>
-        <label><input type="radio" id="Sillouette" name="Silhouette" value="Sillouette" /> Sillouette</label>
-        <p>?</p>
-        <label><input type="radio" id="Tunier" name="Turnier" value="Tunier" /> Tunier</label>
-        <p>oder</p>
-        <label><input type="radio" id="Turnier" name="Turnier" value="Turnier" /> Turnier</label>
-        <p>?</p>
-        <label><input type="radio" id="verpöhnt" name="verpönt" value="verpöhnt" /> verpöhnt</label>
-        <p>oder</p>
-        <label><input type="radio" id="verpönt" name="verpönt" value="verpönt" /> verpönt</label>
-        <p>?</p>
-        <label><input type="radio" id="wiederrum" name="wiederum" value="wiederrum" /> wiederrum</label>
-        <p>oder</p>
-        <label><input type="radio" id="wiederum" name="wiederum" value="wiederum" /> wiederum</label>
-        <p>?</p>
-        <label><input type="radio" id="zuwider" name="zuwider" value="zuwider" /> zuwider</label>
-        <p>oder</p>
-        <label><input type="radio" id="zuwider" name="zuwieder" value="zuwider" /> zuwieder</label>
-        <p>?</p>
-        <label><input type="radio" id="Rückgrat" name="Rückgrat" value="Rückgrat" /> Rückgrat</label>
-        <p>oder</p>
-        <label><input type="radio" id="Rückrad" name="Rückgrat" value="Rückrad" /> Rückrad</label>
-        <p>?</p>
+    <div class="grid-container">
+        <div class="radiobutton">
+            @* Beispielaufgabe *@
+            <div class="row">
+                <div class="col-md-3">
+                    <label><input type="radio" id="Griesgram" name="Griesgram" value="Griesgram" checked /> Griesgram</label>
+                </div>
+                <div class="col-md-3">
+                    <p>oder</p>
+                </div>
+                <div class="col-md-3">
+                    <label><input type="radio" id="Griessgram" name="Griesgram" value="Griessgram" /> Griessgram</label>
+                </div>
+                <div class="col-md-3">
+                    <p>?</p>
+                </div>
+            </div>
+            @* Aufgabe 1 *@
+            <div class="row">
+                <div class="col-md-3">
+                    <label><input type="radio" id="Akupunktur" name="Akupunktur" value="Akupunktur" /> Akupunktur</label>
+                </div>
+                <div class="col-md-3">
+                    <p>oder</p>
+                </div>
+                <div class="col-md-3">
+                    <label><input type="radio" id="Akkupunktur" name="Akupunktur" value="Akkupunktur" /> Akkupunktur</label>
+                </div>
+                <div class="col-md-3">
+                    <p>?</p>
+                </div>
+            </div>
+            @* Aufgabe 2 *@
+            <div class="row">
+                <div class="col-md-3">
+                    <label><input type="radio" id="authorisieren" name="autorisieren" value="authorisieren" /> authorisieren</label>
+                </div>
+                <div class="col-md-3">
+                    <p>oder</p>
+                </div>
+                <div class="col-md-3">
+                    <label><input type="radio" id="autorisieren" name="autorisieren" value="autorisieren" /> autorisieren</label>
+                </div>
+                <div class="col-md-3">
+                    <p>?</p>
+                </div>
+            </div>
+            @* Aufgabe 3 *@
+            <div class="row">
+                <div class="col-md-3">
+                    <label><input type="radio" id="Extase" name="Ekstase" value="Extase" /> Extase</label>
+                </div>
+                <div class="col-md-3">
+                    <p>oder</p>
+                </div>
+                <div class="col-md-3">
+                    <label><input type="radio" id="Ekstase" name="Ekstase" value="Ekstase" /> Ekstase</label>
+                </div>
+                <div class="col-md-3">
+                    <p>?</p>
+                </div>
+            </div>
+            @* Aufgabe 4 *@
+            <div class="row">
+                <div class="col-md-3">
+                    <label><input type="radio" id="prophylakse" name="prophylaxe" value="prophylakse" /> prophylakse</label>
+                </div>
+                <div class="col-md-3">
+                    <p>oder</p>
+                </div>
+                <div class="col-md-3">
+                    <label><input type="radio" id="prophylaxe" name="prophylaxe" value="prophylaxe" /> prophylaxe</label>
+                </div>
+                <div class="col-md-3">
+                    <p>?</p>
+                </div>
+            </div>
+            @* Aufgabe 5 *@
+            <div class="row">
+                <div class="col-md-3">
+                    <label><input type="radio" id="reziprok" name="reziprok" value="reziprok" /> reziprok</label>
+                </div>
+                <div class="col-md-3">
+                    <p>oder</p>
+                </div>
+                <div class="col-md-3">
+                    <label><input type="radio" id="reziprog" name="reziprok" value="reziprog" /> reziprog</label>
+                </div>
+                <div class="col-md-3">
+                    <p>?</p>
+                </div>
+            </div>
+            @* Aufgabe 6 *@
+            <div class="row">
+                <div class="col-md-3">
+                    <label><input type="radio" id="Silhouette" name="Silhouette" value="Silhouette" /> Silhouette</label>
+                </div>
+                <div class="col-md-3">
+                    <p>oder</p>
+                </div>
+                <div class="col-md-3">
+                    <label><input type="radio" id="Sillouette" name="Silhouette" value="Sillouette" /> Sillouette</label>
+                </div>
+                <div class="col-md-3">
+                    <p>?</p>
+                </div>
+            </div>
+            @* Aufgabe 7 *@
+            <div class="row">
+                <div class="col-md-3">
+                    <label><input type="radio" id="Tunier" name="Turnier" value="Tunier" /> Tunier</label>
+                </div>
+                <div class="col-md-3">
+                    <p>oder</p>
+                </div>
+                <div class="col-md-3">
+                    <label><input type="radio" id="Turnier" name="Turnier" value="Turnier" /> Turnier</label>
+                </div>
+                <div class="col-md-3">
+                    <p>?</p>
+                </div>
+            </div>
+            @* Aufgabe 8 *@
+            <div class="row">
+                <div class="col-md-3">
+                    <label><input type="radio" id="verpöhnt" name="verpönt" value="verpöhnt" /> verpöhnt</label>
+                </div>
+                <div class="col-md-3">
+                    <p>oder</p>
+                </div>
+                <div class="col-md-3">
+                    <label><input type="radio" id="verpönt" name="verpönt" value="verpönt" /> verpönt</label>
+                </div>
+                <div class="col-md-3">
+                    <p>?</p>
+                </div>
+            </div>
+            @* Aufgabe 9 *@
+            <div class="row">
+                <div class="col-md-3">
+                    <label><input type="radio" id="wiederrum" name="wiederum" value="wiederrum" /> wiederrum</label>
+                </div>
+                <div class="col-md-3">
+                    <p>oder</p>
+                </div>
+                <div class="col-md-3">
+                    <label><input type="radio" id="wiederum" name="wiederum" value="wiederum" /> wiederum</label>
+                </div>
+                <div class="col-md-3">
+                    <p>?</p>
+                </div>
+            </div>
+            @* Aufgabe 10 *@
+            <div class="row">
+                <div class="col-md-3">
+                    <label><input type="radio" id="zuwider" name="zuwider" value="zuwider" /> zuwider</label>
+                </div>
+                <div class="col-md-3">
+                    <p>oder</p>
+                </div>
+                <div class="col-md-3">
+                    <label><input type="radio" id="zuwieder" name="zuwider" value="zuwieder" /> zuwieder</label>
+                </div>
+                <div class="col-md-3">
+                    <p>?</p>
+                </div>
+            </div>
+            @* Aufgabe 11 *@
+            <div class="row">
+                <div class="col-md-3">
+                    <label><input type="radio" id="Rückgrat" name="Rückgrat" value="Rückgrat" /> Rückgrat</label>
+                </div>
+                <div class="col-md-3">
+                    <p>oder</p>
+                </div>
+                <div class="col-md-3">
+                    <label><input type="radio" id="Rückrad" name="Rückgrat" value="Rückrad" /> Rückrad</label>
+                </div>
+                <div class="col-md-3">
+                    <p>?</p>
+                </div>
+            </div>
+        </div>
     </div>
+
     <NavLink href="">
         <button class="btn btn-dark">Test beenden</button>
     </NavLink>

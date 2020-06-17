@@ -1,7 +1,19 @@
 ﻿@page "/"
+@inject NavigationManager navigationsManager
 
 <h1>Digitaler Einstellungstest</h1>
 
-Herzlich willkommen zum Einstellungstest.
+<p>
+    Herzlich Willkommen zum Einstellungstest der Firma ... . <br />
+    In den folgenden erhalten Sie Aufgaben verschiedener Bereiche, wo Sie sich für eine Auswahl entschieden müssen. <br />
+    Sie haben pro Aufgabenbereich vorgegebene Zeiten, in welchen Sie die Aufgaben lösen müssen. <br />
+    Beachten Sie: Falls die Zeit abläuft, bevor Sie alle Antworten ausgewählt haben, werden diese als "nicht gelöst" betrachtet. <br />
+    Es sind keine weiteren Hilfsmittel während der gesamten Testzeit erlaubt. <br />
+    Wir wünschen Ihnen viel Erfolg!
+</p>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<NavLink href="Beziehungsfragen">
+    <button class="btn btn-dark">Beginn Einstellungstest</button>
+</NavLink>
+
+@*<SurveyPrompt Title="How is Blazor working for you?" />*@
