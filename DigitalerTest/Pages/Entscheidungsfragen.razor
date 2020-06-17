@@ -1,4 +1,5 @@
 ﻿@page "/Entscheidungsfragen"
+@inject NavigationManager navigationsManager
 
 <h3>Entscheidungsfragen</h3>
 
@@ -58,9 +59,8 @@
         <label><input type="radio" id="Saarland" name="Bundesland" value="Saarland" /> Saarland</label>
         <label><input type="radio" id="Sachsen" name="Bundesland" value="Sachsen" /> Sachsen</label>
     </div>
-    <button>Weiter</button>
+    <NavLink href="MathematischeKenntnisse">
+        <button class="btn btn-dark">Nächstes Thema</button>
+    </NavLink>
 </form>
 
-@code {
-
-}
