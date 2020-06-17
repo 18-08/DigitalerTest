@@ -1,10 +1,5 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
-.highlight{
-    background-color: white;
-    opacity: 0.5;
-}
-
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -12,6 +7,32 @@ html, body {
 a, .btn-link {
     color: #0366d6;
 }
+
+
+.button {
+    box-shadow: 0px 10px 14px -7px #276873;
+    background: linear-gradient(to bottom, #214e82 5%, #214e82 100%);
+    background-color: #214e82;
+    border-radius: 8px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-weight: bold;
+    padding: 7px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #3d768a;
+}
+
+.button:hover {
+     background: linear-gradient(to bottom, #214e82 5%, #214e82 100%);
+     background-color: #214e82;
+ }
+
+.button:active {
+     position: relative;
+     top: 1px;
+ }
 
 .btn-primary {
     color: #fff;
@@ -167,7 +188,7 @@ app {
         top: 0;
     }
 
-    .main .top-row {
+    .main .top- {
         position: sticky;
         top: 0;
     }
