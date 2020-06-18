@@ -28,28 +28,12 @@
                     <p>?</p>
                 </div>
             </div>
+
             @* Aufgabe 1 *@
-        <div class="row">
-            @foreach (var item in new string[] { "AspNetCore" })
-            {
-                <div class="col-md-3">
-                    <input type="radio" id="@Akupunktur" name="Akupunktur" value="@Akupunktur" @onchange="RadioSelection" checked=@(RadioValue.Equals(item, StringComparison.OrdinalIgnoreCase)) />
-                    <label for="@Akupunktur">@Akupunktur</label>
-                </div>
-            }
-            <div>
-                <label>Selected Value is @RadioSelection</label>
+        @*<div class="row">
+            <div class="col-md-3">
+                <label><input type="radio" id="@Akupunktur" name="Akupunktur" value="@Akupunktur" @onchange="RadioSelection" checked=@(RadioValue.Equals(item, StringComparison.OrdinalIgnoreCase)) /></label>
             </div>
-
-            @functions
-            {
-                string RadioValue = "aspnetcore";
-                void RadioSelection(UIChangeEventArgs args)
-                {
-                    RadioValue = args.Value.Tostring();
-                }
-            }
-
             <div class="col-md-3">
                 <p>oder</p>
             </div>
@@ -59,8 +43,7 @@
             <div class="col-md-3">
                 <p>?</p>
             </div>
-
-        </div>
+        </div>*@
             
            
             @* Aufgabe 2 *@
@@ -201,17 +184,18 @@
             @* Aufgabe 11 *@
             <div class="row">
                 <div class="col-md-3">
-                    <label><input type="radio" id="Rückgrat" name="Rückgrat" value="Rückgrat" /> Rückgrat</label>
+                    <label><input type="radio" id="Rückgrat" name="Frage11" value="Rückgrat" /> Rückgrat</label>
                 </div>
                 <div class="col-md-3">
                     <p>oder</p>
                 </div>
                 <div class="col-md-3">
-                    <label><input type="radio" id="Rückrad" name="Rückgrat" value="Rückrad" /> Rückrad</label>
+                    <label><input type="radio" id="Rückrad" name="Frage11" value="Rückrad" @onchange="SelectionChanged" checked=@(antwort.Equals("Rückrad", StringComparison.OrdinalIgnoreCase)) /> Rückrad</label>
                 </div>
                 <div class="col-md-3">
                     <p>?</p>
                 </div>
+                <div>@antwort</div>
             </div>
         </div>
     </div>
@@ -222,3 +206,14 @@
         <button class="btn btn-dark">Test beenden!</button>
     </NavLink>
 </form>
+
+@code{
+
+    public string antwort = "";
+    public string frage = "";
+
+    void SelectionChanged(ChangeEventArgs args)
+    {
+        antwort = args.Value.ToString();
+    }
+}
