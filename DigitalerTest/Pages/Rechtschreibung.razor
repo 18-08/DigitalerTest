@@ -1,6 +1,7 @@
 ﻿@page "/Rechtschreibung"
 @inject NavigationManager navigationsManager
 
+
 <h3>Rechtschreibung</h3>
 
 <form>
@@ -28,20 +29,40 @@
                 </div>
             </div>
             @* Aufgabe 1 *@
-            <div class="row">
+        <div class="row">
+            @foreach (var item in new string[] { "AspNetCore" })
+            {
                 <div class="col-md-3">
-                    <label><input type="radio" id="Akupunktur" name="Akupunktur" value="Akupunktur" /> Akupunktur</label>
+                    <input type="radio" id="@Akupunktur" name="Akupunktur" value="@Akupunktur" @onchange="RadioSelection" checked=@(RadioValue.Equals(item, StringComparison.OrdinalIgnoreCase)) />
+                    <label for="@Akupunktur">@Akupunktur</label>
                 </div>
-                <div class="col-md-3">
-                    <p>oder</p>
-                </div>
-                <div class="col-md-3">
-                    <label><input type="radio" id="Akkupunktur" name="Akupunktur" value="Akkupunktur" /> Akkupunktur</label>
-                </div>
-                <div class="col-md-3">
-                    <p>?</p>
-                </div>
+            }
+            <div>
+                <label>Selected Value is @RadioSelection</label>
             </div>
+
+            @functions
+            {
+                string RadioValue = "aspnetcore";
+                void RadioSelection(UIChangeEventArgs args)
+                {
+                    RadioValue = args.Value.Tostring();
+                }
+            }
+
+            <div class="col-md-3">
+                <p>oder</p>
+            </div>
+            <div class="col-md-3">
+                <label><input type="radio" id="Akkupunktur" name="Akupunktur" value="Akkupunktur" /> Akkupunktur</label>
+            </div>
+            <div class="col-md-3">
+                <p>?</p>
+            </div>
+
+        </div>
+            
+           
             @* Aufgabe 2 *@
             <div class="row">
                 <div class="col-md-3">
@@ -194,6 +215,8 @@
             </div>
         </div>
     </div>
+
+    <button class="">Stop</button>
 
     <NavLink href="">
         <button class="btn btn-dark">Test beenden</button>
