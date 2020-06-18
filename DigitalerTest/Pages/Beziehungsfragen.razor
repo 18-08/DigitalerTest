@@ -5,57 +5,60 @@
 <h3>Beziehungsfragen</h3>
 
 <form>
-    <button @onclick="Penis"></button>
-    <p>@test</p>
+    @*Frage1*@
     <div>
         <p>Baum - Pflanze</p>
         <p>Haus - ?</p>
     </div>
     <div class="radiobutton">
-        <label><input type="radio" id="Grundstück" name="Haus" value="Grundstück" /> Grundstück</label>
-        <label><input type="radio" id="Gebäude" name="Haus" value="Gebäude" /> Gebäude</label>
-        <label><input type="radio" id="Garten" name="Haus" value="Garten" /> Garten</label>
-        <label><input type="radio" id="Tür" name="Haus" value="Tür" /> Tür</label>
+        <label><input type="radio" id="Grundstück" name="Haus" value="Grundstück/T1F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Grundstück</label>
+        <label><input type="radio" id="Gebäude" name="Haus" value="Gebäude/T1F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Gebäude</label>
+        <label><input type="radio" id="Garten" name="Haus" value="Garten/T1F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Garten</label>
+        <label><input type="radio" id="Tür" name="Haus" value="Tür/T1F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Tür</label>
     </div>
+    @*Frage2*@
     <div>
         <p>Hund - Welpe</p>
         <p>Pferd - ?</p>
     </div>
     <div class="radiobutton">
-        <label><input type="radio" id="Baby" name="Pferd" value="Baby" /> Baby</label>
-        <label><input type="radio" id="Neugeborenes" name="Pferd" value="Neugeborenes" /> Neugeborenes</label>
-        <label><input type="radio" id="Eltern" name="Pferd" value="Eltern" /> Eltern</label>
-        <label><input type="radio" id="Fohlen" name="Pferd" value="Fohlen" /> Fohlen</label>
+        <label><input type="radio" id="Baby" name="Pferd" value="Baby/T1F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Baby</label>
+        <label><input type="radio" id="Neugeborenes" name="Pferd" value="Neugeborenes/T1F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Neugeborenes</label>
+        <label><input type="radio" id="Eltern" name="Pferd" value="Eltern/T1F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Eltern</label>
+        <label><input type="radio" id="Fohlen" name="Pferd" value="Fohlen/T1F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Fohlen</label>
     </div>
+    @*Frage3*@
     <div>
         <p>Violine - Streichinstrument</p>
         <p>Tuba - ?</p>
     </div>
     <div class="radiobutton">
-        <label><input type="radio" id="Blasinstrument" name="Tuba" value="Blasinstrument" /> Blasinstrument</label>
-        <label><input type="radio" id="Kontrabass" name="Tuba" value="Kontrabass" /> Kontrabass</label>
-        <label><input type="radio" id="Zupfinstrument" name="Tuba" value="Zupfinstrument" /> Zupfinstrument</label>
-        <label><input type="radio" id="Trompete" name="Tuba" value="Trompete" /> Trompete</label>
+        <label><input type="radio" id="Blasinstrument" name="Tuba" value="Blasinstrument/T1F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Blasinstrument</label>
+        <label><input type="radio" id="Kontrabass" name="Tuba" value="Kontrabass/T1F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Kontrabass</label>
+        <label><input type="radio" id="Zupfinstrument" name="Tuba" value="Zupfinstrument/T1F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Zupfinstrument</label>
+        <label><input type="radio" id="Trompete" name="Tuba" value="Trompete/T1F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Trompete</label>
     </div>
+    @*Frage4*@
     <div>
         <p>Fisch - Wasser</p>
         <p>? - Luft</p>
     </div>
     <div class="radiobutton">
-        <label><input type="radio" id="Flugzeug" name="Luft" value="Flugzeug" /> Flugzeug</label>
-        <label><input type="radio" id="Vogel" name="Luft" value="Vogel" /> Vogel</label>
-        <label><input type="radio" id="Baum" name="Luft" value="Baum" /> Baum</label>
-        <label><input type="radio" id="Flamingo" name="Luft" value="Flamingo" /> Flamingo</label>
+        <label><input type="radio" id="Flugzeug" name="Luft" value="Flugzeug/T1F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Flugzeug</label>
+        <label><input type="radio" id="Vogel" name="Luft" value="Vogel/T1F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Vogel</label>
+        <label><input type="radio" id="Baum" name="Luft" value="Baum/T1F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Baum</label>
+        <label><input type="radio" id="Flamingo" name="Luft" value="Flamingo/T1F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Flamingo</label>
     </div>
+    @*Frage5*@
     <div>
         <p>Deutschland - Berlin</p>
         <p>Monaco - ?</p>
     </div>
     <div class="radiobutton">
-        <label><input type="radio" id="Madrid" name="Monaco" value="Madrid" /> Madrid</label>
-        <label><input type="radio" id="Monaco" name="Monaco" value="Monaco" /> Monaco</label>
-        <label><input type="radio" id="Port Vila" name="Monaco" value="Port Vila" /> Port Vila</label>
-        <label><input type="radio" id="Manama" name="Monaco" value="Manama" /> Manama</label>
+        <label><input type="radio" id="Madrid" name="Monaco" value="Madrid/T1F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Madrid</label>
+        <label><input type="radio" id="Monaco" name="Monaco" value="Monaco/T1F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Monaco</label>
+        <label><input type="radio" id="Port Vila" name="Monaco" value="Port Vila/T1F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Port Vila</label>
+        <label><input type="radio" id="Manama" name="Monaco" value="Manama/T1F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Manama</label>
     </div>
 
     <NavLink href="Entscheidungsfragen">
@@ -63,18 +66,16 @@
     </NavLink>
 </form>
 
+@code{
 
-@code{     
-    public int test = 0;
+    public string antwort = "";
 
-    public void Penis()
+    public string frage = "";
+
+    void SelectionChanged(ChangeEventArgs args)
     {
-        timer.SetzeTimer(10000);
-        timer.OnElapsed += TimerElapsedHandler;
-    }
+        antwort = args.Value.ToString();
 
-    public void TimerElapsedHandler()
-    {
-        test++;
     }
 }
+
