@@ -1,9 +1,12 @@
 ﻿@page "/Beziehungsfragen"
 @inject NavigationManager navigationsManager
-
+@inject DigitalerTest.Data.TimerService timer
+@using System.Diagnostics; 
 <h3>Beziehungsfragen</h3>
 
 <form>
+    <button @onclick="Penis"></button>
+    <p>@test</p>
     <div>
         <p>Baum - Pflanze</p>
         <p>Haus - ?</p>
@@ -60,3 +63,18 @@
     </NavLink>
 </form>
 
+
+@code{     
+    public int test = 0;
+
+    public void Penis()
+    {
+        timer.SetzeTimer(10000);
+        timer.OnElapsed += TimerElapsedHandler;
+    }
+
+    public void TimerElapsedHandler()
+    {
+        test++;
+    }
+}

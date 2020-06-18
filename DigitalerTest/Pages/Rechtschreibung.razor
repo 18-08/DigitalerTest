@@ -1,10 +1,9 @@
 ﻿@page "/Rechtschreibung"
 @inject NavigationManager navigationsManager
 
-
 <h3>Rechtschreibung</h3>
 
-<form>
+<form >
     <div>
         <h5>
             Gegeben ist ein Wort, wo die richtige Schreibung herausgefunden werden muss. <br />
@@ -183,19 +182,13 @@
             </div>
             @* Aufgabe 11 *@
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <label><input type="radio" id="Rückgrat" name="Frage11" value="Rückgrat" /> Rückgrat</label>
                 </div>
-                <div class="col-md-3">
-                    <p>oder</p>
-                </div>
-                <div class="col-md-3">
+
+                <div class="col-md-6">
                     <label><input type="radio" id="Rückrad" name="Frage11" value="Rückrad" @onchange="SelectionChanged" checked=@(antwort.Equals("Rückrad", StringComparison.OrdinalIgnoreCase)) /> Rückrad</label>
                 </div>
-                <div class="col-md-3">
-                    <p>?</p>
-                </div>
-                <div>@antwort</div>
             </div>
         </div>
     </div>
