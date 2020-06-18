@@ -10,10 +10,10 @@
         </h5>
     </div>
     <div class="radiobutton">
-        <label><input type="radio" id="Bundeskanzler" name="Bundespräsident" value="Bundeskanzler/T2F1" /> Bundeskanzler</label>
-        <label><input type="radio" id="Bundesversammlung" name="Bundespräsident" value="Bundesversammlung/T2F1" /> Bundesversammlung</label>
-        <label><input type="radio" id="Bundestag" name="Bundespräsident" value="Bundestag" /> Bundestag</label>
-        <label><input type="radio" id="Bundesrat" name="Bundespräsident" value="Bundesrat" /> Bundesrat</label>
+        <label><input type="radio" id="Bundeskanzler" name="Bundespräsident" value="Bundeskanzler/T2F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Bundeskanzler</label>
+        <label><input type="radio" id="Bundesversammlung" name="Bundespräsident" value="Bundesversammlung/T2F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Bundesversammlung</label>
+        <label><input type="radio" id="Bundestag" name="Bundespräsident" value="Bundestag/T2F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Bundestag</label>
+        <label><input type="radio" id="Bundesrat" name="Bundespräsident" value="Bundesrat/T2F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Bundesrat</label>
     </div>
     <div>
         <h5>
@@ -21,10 +21,10 @@
         </h5>
     </div>
     <div class="radiobutton">
-        <label><input type="radio" id="Delfin" name="Tier" value="Delfin" /> Delfin</label>
-        <label><input type="radio" id="Hai" name="Tier" value="Hai" /> Hai</label>
-        <label><input type="radio" id="Wal" name="Tier" value="Wal" /> Wal</label>
-        <label><input type="radio" id="Seehund" name="Tier" value="Seehund" /> Seehund</label>
+        <label><input type="radio" id="Delfin" name="Tier" value="Delfin/T2F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Delfin</label>
+        <label><input type="radio" id="Hai" name="Tier" value="Hai/T2F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Hai</label>
+        <label><input type="radio" id="Wal" name="Tier" value="Wal/T2F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Wal</label>
+        <label><input type="radio" id="Seehund" name="Tier" value="Seehund/T2F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Seehund</label>
     </div>
     <div>
         <h5>
@@ -32,10 +32,10 @@
         </h5>
     </div>
     <div class="radiobutton">
-        <label><input type="radio" id="Hamburg" name="Stadt" value="Hamburg" /> Hamburg</label>
-        <label><input type="radio" id="Bremen" name="Stadt" value="Bremen" /> Bremen</label>
-        <label><input type="radio" id="Berlin" name="Stadt" value="Berlin" /> Berlin</label>
-        <label><input type="radio" id="Dresden" name="Stadt" value="Dresden" /> Dresden</label>
+        <label><input type="radio" id="Hamburg" name="Stadt" value="Hamburg/T2F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Hamburg</label>
+        <label><input type="radio" id="Bremen" name="Stadt" value="Bremen/T2F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Bremen</label>
+        <label><input type="radio" id="Berlin" name="Stadt" value="Berlin/T2F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase))/> Berlin</label>
+        <label><input type="radio" id="Dresden" name="Stadt" value="Dresden/T2F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Dresden</label>
     </div>
     <div>
         <h5>
@@ -43,10 +43,10 @@
         </h5>
     </div>
     <div class="radiobutton">
-        <label><input type="radio" id="1988" name="Mauer" value="1988" /> 1988</label>
-        <label><input type="radio" id="1989" name="Mauer" value="1989" /> 1989</label>
-        <label><input type="radio" id="1990" name="Mauer" value="1990" /> 1990</label>
-        <label><input type="radio" id="1991" name="Mauer" value="1991" /> 1991</label>
+        <label><input type="radio" id="1988" name="Mauer" value="1988/T2F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 1988</label>
+        <label><input type="radio" id="1989" name="Mauer" value="1989/T2F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase))/> 1989</label>
+        <label><input type="radio" id="1990" name="Mauer" value="1990/T2F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase))/> 1990</label>
+        <label><input type="radio" id="1991" name="Mauer" value="1991/T2F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase))/> 1991</label>
     </div>
     <div>
         <h5>
@@ -54,13 +54,26 @@
         </h5>
     </div>
     <div class="radiobutton">
-        <label><input type="radio" id="Bremen" name="Bundesland" value="Bremen" /> Bremen</label>
-        <label><input type="radio" id="Hamburg" name="Bundesland" value="Hamburg" /> Hamburg</label>
-        <label><input type="radio" id="Saarland" name="Bundesland" value="Saarland" /> Saarland</label>
-        <label><input type="radio" id="Sachsen" name="Bundesland" value="Sachsen" /> Sachsen</label>
+        <label><input type="radio" id="Bremen" name="Bundesland" value="Bremen/T2F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Bremen</label>
+        <label><input type="radio" id="Hamburg" name="Bundesland" value="Hamburg/T2F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Hamburg</label>
+        <label><input type="radio" id="Saarland" name="Bundesland" value="Saarland/T2F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Saarland</label>
+        <label><input type="radio" id="Sachsen" name="Bundesland" value="Sachsen/T2F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Sachsen</label>
     </div>
 
     <NavLink href="MathematischeKenntnisse">
         <button class="btn btn-dark">Nächstes Thema</button>
     </NavLink>
 </form>
+
+@code{
+
+    public string antwort = "";
+
+    public string frage = "";
+
+    void SelectionChanged(ChangeEventArgs args)
+    {
+        antwort = args.Value.ToString();
+
+    }
+}
