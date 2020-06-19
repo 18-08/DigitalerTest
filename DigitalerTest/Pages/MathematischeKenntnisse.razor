@@ -113,7 +113,7 @@
             <div class="row">
                 <div class=" col-md-12">
                     <NavLink href="RechtschreibungStartseite">
-                        <button class="btn btn-dark">Nächstes Thema</button>
+                        <button class="btn btn-dark" @onclick="StoppeStoppuhr">Nächstes Thema</button>
                     </NavLink>
                 </div>
             </div>
@@ -150,7 +150,7 @@
         {
             ThemaHinzufuegen();
 
-            navigationManager.NavigateTo("Rechtschreibung", true);
+            navigationManager.NavigateTo("RechtschreibungStartseite", true);
 
             StateHasChanged();
         });
@@ -177,6 +177,13 @@
 
     private void ThemaHinzufuegen()
     {
+        test.eignungstest.themengebiete.Add(themengebiet);
+    }
+
+    private void StoppeStoppuhr()
+    {
+        stoppuhr.stoppeStoppuhr();
+
         test.eignungstest.themengebiete.Add(themengebiet);
     }
 }

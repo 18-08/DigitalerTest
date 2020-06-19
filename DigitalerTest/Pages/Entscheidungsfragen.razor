@@ -105,7 +105,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <NavLink href="MathematischeKenntnisseStartseite">
-                        <button class="btn btn-dark">Nächstes Thema</button>
+                        <button class="btn btn-dark" @onclick="StoppeStoppuhr">Nächstes Thema</button>
                     </NavLink>
                 </div>
             </div>
@@ -169,6 +169,13 @@
 
     private void ThemaHinzufuegen()
     {
+        test.eignungstest.themengebiete.Add(themengebiet);
+    }
+
+    private void StoppeStoppuhr()
+    {
+        stoppuhr.stoppeStoppuhr();
+
         test.eignungstest.themengebiete.Add(themengebiet);
     }
 }

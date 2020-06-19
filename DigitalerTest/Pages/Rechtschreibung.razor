@@ -185,14 +185,12 @@
             <div class="row">
                 <div class="col-md-2">
                     <NavLink href="TestBeendet">
-                        <button class="btn btn-dark">Test beenden!</button>
+                        <button class="btn btn-dark" @onclick="StoppeStoppuhr">Test beenden!</button>
                     </NavLink>
                 </div>
             </div>
         </div>
-    </div>
-    <button class="">Stop</button>
-    
+    </div>    
 </form>
 
 @code{
@@ -251,6 +249,13 @@
 
     private void ThemaHinzufuegen()
     {
+        test.eignungstest.themengebiete.Add(themengebiet);
+    }
+
+    private void StoppeStoppuhr()
+    {
+        stoppuhr.stoppeStoppuhr();
+
         test.eignungstest.themengebiete.Add(themengebiet);
     }
 }
