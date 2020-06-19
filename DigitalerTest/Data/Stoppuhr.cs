@@ -12,7 +12,7 @@ namespace DigitalerTest.Data
 
         public void starteStoppuhr()
         {
-            timer = new Timer();
+            timer = new Timer();  //ein Kommentar
 
             timer.Interval = 5000;
 
