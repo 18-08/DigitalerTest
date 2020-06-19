@@ -1,4 +1,8 @@
 ﻿@page "/Rechtschreibung"
+
+@using DigitalerTest.Data 
+@using DigitalerTest.Pages
+
 @inject NavigationManager navigationsManager
 
 <h3>Rechtschreibung</h3>
@@ -206,14 +210,16 @@
 </form>
 
 @code{
-
     public string antwort = "";
-    
+
     public string frage = "";
 
     void SelectionChanged(ChangeEventArgs args)
     {
         antwort = args.Value.ToString();
-       
+
+        Beziehungsfragen beziehungsfragen = new Beziehungsfragen();
+
+        beziehungsfragen.
     }
 }
