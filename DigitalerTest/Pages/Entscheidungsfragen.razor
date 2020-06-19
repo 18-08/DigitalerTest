@@ -1,5 +1,10 @@
 ﻿@page "/Entscheidungsfragen"
-@inject NavigationManager navigationsManager
+
+@using DigitalerTest.Data
+@using System.Timers;
+
+@inject NavigationManager navigationManager
+@inject StoppuhrService stoppuhrService
 
 <h3>Entscheidungsfragen</h3>
 
@@ -37,7 +42,7 @@
     <div class="radiobutton">
         <label><input type="radio" id="Hamburg" name="Stadt" value="Hamburg/T2F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Hamburg</label>
         <label><input type="radio" id="Bremen" name="Stadt" value="Bremen/T2F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Bremen</label>
-        <label><input type="radio" id="Berlin" name="Stadt" value="Berlin/T2F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase))/> Berlin</label>
+        <label><input type="radio" id="Berlin" name="Stadt" value="Berlin/T2F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Berlin</label>
         <label><input type="radio" id="Dresden" name="Stadt" value="Dresden/T2F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Dresden</label>
     </div>
     @*Frage4*@
@@ -48,9 +53,9 @@
     </div>
     <div class="radiobutton">
         <label><input type="radio" id="1988" name="Mauer" value="1988/T2F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 1988</label>
-        <label><input type="radio" id="1989" name="Mauer" value="1989/T2F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase))/> 1989</label>
-        <label><input type="radio" id="1990" name="Mauer" value="1990/T2F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase))/> 1990</label>
-        <label><input type="radio" id="1991" name="Mauer" value="1991/T2F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase))/> 1991</label>
+        <label><input type="radio" id="1989" name="Mauer" value="1989/T2F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 1989</label>
+        <label><input type="radio" id="1990" name="Mauer" value="1990/T2F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 1990</label>
+        <label><input type="radio" id="1991" name="Mauer" value="1991/T2F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 1991</label>
     </div>
     @*Frage5*@
     <div>
@@ -71,14 +76,35 @@
 </form>
 
 @code{
+    private Stoppuhr stoppuhr;  
 
     public string antwort = "";
-
     public string frage = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        stoppuhr = await stoppuhrService.starteStoppuhrAsync();
+
+        stoppuhr.timer.Elapsed += OnElapsedEvent;
+    }
+
+    private void OnElapsedEvent(Object source, ElapsedEventArgs e)
+    {
+        naechstesThema().Wait();
+    }
+
+    private async Task naechstesThema()
+    {
+        await InvokeAsync(() =>
+        {
+            navigationManager.NavigateTo("MathematischeKenntnisseStartseite", true);
+
+            StateHasChanged();
+        });
+    }
 
     void SelectionChanged(ChangeEventArgs args)
     {
         antwort = args.Value.ToString();
-
     }
 }

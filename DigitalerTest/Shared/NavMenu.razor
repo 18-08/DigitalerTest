@@ -25,7 +25,7 @@
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="@id_MathematischeKenntisse" href="MathematischeKenntnisse">
+            <NavLink class="@id_MathematischeKenntnisse" href="MathematischeKenntnisse">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> Mathematische Kenntnisse
             </NavLink>
         </li>
@@ -44,7 +44,7 @@
     public string id_Rechtschreibung = "";
     public string id_Beziehungsfragen = "";
     public string id_Entscheidungsfragen = "";
-    public string id_MathematischeKenntisse = "";
+    public string id_MathematischeKenntnisse = "";
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
@@ -64,28 +64,28 @@
                 id_Rechtschreibung = "active";
                 id_Beziehungsfragen = "disabled";
                 id_Entscheidungsfragen = "disabled";
-                id_MathematischeKenntisse = "disabled";
+                id_MathematischeKenntnisse = "disabled";
                 break;
 
             case "https://localhost:44321/Beziehungsfragen":
                 id_Rechtschreibung = "disabled";
                 id_Beziehungsfragen = "active";
                 id_Entscheidungsfragen = "disabled";
-                id_MathematischeKenntisse = "disabled";
+                id_MathematischeKenntnisse = "disabled";
                 break;
 
             case "https://localhost:44321/Entscheidungsfragen":
                 id_Rechtschreibung = "disabled";
                 id_Beziehungsfragen = "disabled";
                 id_Entscheidungsfragen = "active";
-                id_MathematischeKenntisse = "disabled";
+                id_MathematischeKenntnisse = "disabled";
                 break;
 
             case "https://localhost:44321/MathematischeKenntnisse":
                 id_Rechtschreibung = "disabled";
                 id_Beziehungsfragen = "disabled";
                 id_Entscheidungsfragen = "disabled";
-                id_MathematischeKenntisse = "active";
+                id_MathematischeKenntnisse = "active";
                 break;
         }
     }
