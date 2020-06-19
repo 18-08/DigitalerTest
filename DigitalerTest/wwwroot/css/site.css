@@ -206,4 +206,12 @@ app {
         /* Never collapse the sidebar for wide screens */
         display: block;
     }
+
+    input:invalid {
+        outline: 1px solid red;
+    }
+
+    input:valid {
+        outline: green;
+    }
 }
