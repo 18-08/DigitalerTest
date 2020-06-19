@@ -1,62 +1,65 @@
 ﻿@page "/"
-@inject NavigationManager navigationsManager
+
+@using DigitalerTest.Data
 @using System.ComponentModel.DataAnnotations;
 @using System
 
-    <EditForm Model="@starship" OnInvalidSubmit="@HandleValidSubmit">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Willkommen bei Ihrem Eignungstest</h1>
-            </div>
+@*@inject NavigationManager navigationsManager*@
+
+<EditForm Model="@starship" OnInvalidSubmit="@HandleValidSubmit">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Willkommen bei Ihrem Eignungstest</h1>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                Bitte geben Sie Ihre Identifikationsnummer an! <br />
-                @*<input type="text" class="id_number" pattern="[0-9]{7}" required placeholder="Identifikationsnummer" />*@
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            Bitte geben Sie Ihre Identifikationsnummer an! <br />
+            @*<input type="text" class="id_number" pattern="[0-9]{7}" required placeholder="Identifikationsnummer" />*@
             <p>
                 <label for="identifier">Identifikationsnummer: </label>
                 <InputText id="identifier" @bind-Value="starship.Identifier" />
                 <ValidationMessage For="() => starship.Identifier" />
             </p>
-            </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="text-danger">Achtung!</h3>
-            </div>
-            <div class="col-md-12">
-                Bitte beachten Sie folgende Hinweise:
-            </div>
-            <div class="col-md-12">
-                <ul>
-                    <li>Bitte geben Sie Ihre ausgehändigte Identifikationsnummer an. Beachten Sie hierbei auf die korrekte Schreibweise Ihrer Nummer.</li>
-                    <li>Bevor Sie mit einem Themengebiet beginnen, erhalten Sie eine Unterweisung mit Beispielen zum besseren Verständnis.</li>
-                    <li>Für jedes Themengebiet haben Sie eine Zeitvorgabe. Diese erfahren Sie vor dem jeweiligen Test.</li>
-                    <li>Falls Sie dennoch Fragen haben, wenden Sie sich bitte an Ihren Testleiter.</li>
-                    <li>Bitte überprügfen Sie nach Beendigung des Testgebietes Ihre Fragen. Sobald Sie in den nächsten Test gelangen, sind Änderungen nicht mehr möglich.</li>
-                    <li>Ihre Antworten werden am Ende automatisch gespeichert.</li>
-                    <li>Weitere Infos zum Datenschutz finden Sie hier. @*Link einbinden!*@ </li>
-                </ul>
-            </div>
-            <div>
-                Wir wünschen Ihnen viel Erfolg!
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-danger">Achtung!</h3>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <NavLink href="BeziehungsfragenStartseite">
-                    <button class="btn btn-dark">Test beginnen!</button>
-                </NavLink>
-            </div>
+        <div class="col-md-12">
+            Bitte beachten Sie folgende Hinweise:
         </div>
-    </EditForm>
+        <div class="col-md-12">
+            <ul>
+                <li>Bitte geben Sie Ihre ausgehändigte Identifikationsnummer an. Beachten Sie hierbei auf die korrekte Schreibweise Ihrer Nummer.</li>
+                <li>Bevor Sie mit einem Themengebiet beginnen, erhalten Sie eine Unterweisung mit Beispielen zum besseren Verständnis.</li>
+                <li>Für jedes Themengebiet haben Sie eine Zeitvorgabe. Diese erfahren Sie vor dem jeweiligen Test.</li>
+                <li>Falls Sie dennoch Fragen haben, wenden Sie sich bitte an Ihren Testleiter.</li>
+                <li>Bitte überprügfen Sie nach Beendigung des Testgebietes Ihre Fragen. Sobald Sie in den nächsten Test gelangen, sind Änderungen nicht mehr möglich.</li>
+                <li>Ihre Antworten werden am Ende automatisch gespeichert.</li>
+                <li>Weitere Infos zum Datenschutz finden Sie hier. @*Link einbinden!*@ </li>
+            </ul>
+        </div>
+        <div>
+            Wir wünschen Ihnen viel Erfolg!
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <NavLink href="BeziehungsfragenStartseite">
+                <button class="btn btn-dark">Test beginnen!</button>
+            </NavLink>
+        </div>
+    </div>
+</EditForm>
 
 @code
 {
     public class Starship
     {
         [Required]
-        [StringLength (7, ErrorMessage= "Identifikationsnummer ist zu lang (max. 7 Zeichen lang).")]   
+        [StringLength(7, ErrorMessage = "Identifikationsnummer ist zu lang (max. 7 Zeichen lang).")]
         public String Identifier { get; set; }
 
     }
