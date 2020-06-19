@@ -2,6 +2,7 @@
 
 @using DigitalerTest.Data
 @using System.Timers;
+@using static DigitalerTest.Data.Themengebiete
 
 @inject NavigationManager navigationManager
 @inject StoppuhrService stoppuhrService
@@ -73,6 +74,10 @@
 @code{
     private Stoppuhr stoppuhr;  
 
+    public Eignungstest eignugstest = new Eignungstest();
+
+    private Themengebiete beziehungsfragen = new Themengebiete();
+
     public string antwort = "";
 
     protected override async Task OnInitializedAsync()
@@ -99,7 +104,15 @@
 
     void SelectionChanged(ChangeEventArgs args)
     {
+        string[] splitAntwort;
+        Frage frage = new Frage();
+
         antwort = args.Value.ToString();
+
+        splitAntwort = antwort.Split("/");
+
+        frage.antwort = splitAntwort[0];
+        frage.ID = splitAntwort[1];
     }
 }
 
