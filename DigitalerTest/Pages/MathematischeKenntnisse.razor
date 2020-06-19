@@ -121,13 +121,18 @@
 </form>
 
 @code{
-    private Stoppuhr stoppuhr;  
+    private Index test = new Index();
+    private Beziehungsfragen beziehungsfragen = new Beziehungsfragen();
+
+    private Stoppuhr stoppuhr;
+    private Themengebiete themengebiet = new Themengebiete();
 
     public string antwort = "";
-    public string frage = "";
 
     protected override async Task OnInitializedAsync()
     {
+        themengebiet.titel = "Mathematik";
+
         stoppuhr = await stoppuhrService.starteStoppuhrAsync();
 
         stoppuhr.timer.Elapsed += OnElapsedEvent;
@@ -135,6 +140,7 @@
 
     private void OnElapsedEvent(Object source, ElapsedEventArgs e)
     {
+        stoppuhr.stoppeStoppuhr();
         naechstesThema().Wait();
     }
 
@@ -142,7 +148,9 @@
     {
         await InvokeAsync(() =>
         {
-            navigationManager.NavigateTo("RechtschreibungStartseite", true);
+            ThemaHinzufuegen();
+
+            navigationManager.NavigateTo("Rechtschreibung", true);
 
             StateHasChanged();
         });
@@ -150,6 +158,25 @@
 
     void SelectionChanged(ChangeEventArgs args)
     {
+        string[] splitAntwort;
+        Frage frage = new Frage();
+
         antwort = args.Value.ToString();
+
+        splitAntwort = antwort.Split("/");
+
+        frage.antwort = splitAntwort[0];
+        frage.ID = splitAntwort[1];
+
+        themengebiet.fragen.Add(new Frage()
+        {
+            antwort = frage.antwort,
+            ID = frage.ID
+        });
+    }
+
+    private void ThemaHinzufuegen()
+    {
+        test.eignungstest.themengebiete.Add(themengebiet);
     }
 }

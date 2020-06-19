@@ -1,6 +1,7 @@
 ﻿@page "/Beziehungsfragen"
 
 @using DigitalerTest.Data
+@using DigitalerTest.Pages
 @using System.Timers;
 @using static DigitalerTest.Data.Themengebiete
 
@@ -114,16 +115,18 @@
 </form>
 
 @code{
-    private Stoppuhr stoppuhr;  
 
-    public Eignungstest eignugstest = new Eignungstest();
+    private Index test = new Index();
 
-    private Themengebiete beziehungsfragen = new Themengebiete();
+    private Stoppuhr stoppuhr;
+    private Themengebiete themengebiet = new Themengebiete();
 
     public string antwort = "";
 
     protected override async Task OnInitializedAsync()
     {
+        themengebiet.titel = "Beziehungsfragen";
+
         stoppuhr = await stoppuhrService.starteStoppuhrAsync();
 
         stoppuhr.timer.Elapsed += OnElapsedEvent;
@@ -131,6 +134,7 @@
 
     private void OnElapsedEvent(Object source, ElapsedEventArgs e)
     {
+        stoppuhr.stoppeStoppuhr();
         naechstesThema().Wait();
     }
 
@@ -138,6 +142,8 @@
     {
         await InvokeAsync(() =>
         {
+            ThemaHinzufuegen();
+
             navigationManager.NavigateTo("EntscheidungsfragenStartseite", true);
 
             StateHasChanged();
@@ -155,6 +161,16 @@
 
         frage.antwort = splitAntwort[0];
         frage.ID = splitAntwort[1];
+
+        themengebiet.fragen.Add(new Frage() {
+            antwort = frage.antwort,
+            ID = frage.ID
+        });
+    }
+
+    private void ThemaHinzufuegen()
+    {
+        test.eignungstest.themengebiete.Add(themengebiet);
     }
 }
 
