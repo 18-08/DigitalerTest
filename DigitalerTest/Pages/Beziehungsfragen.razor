@@ -1,7 +1,11 @@
 ﻿@page "/Beziehungsfragen"
-@inject NavigationManager navigationsManager
-@inject DigitalerTest.Data.TimerService timer
-@using System.Diagnostics; 
+
+@using DigitalerTest.Data
+@using System.Timers;
+
+@inject NavigationManager navigationManager
+@inject StoppuhrService stoppuhrService
+
 <h3>Beziehungsfragen</h3>
 
 <form>
@@ -67,15 +71,36 @@
 </form>
 
 @code{
+    private Stoppuhr stoppuhr;
 
     public string antwort = "";
-
     public string frage = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        stoppuhr = await stoppuhrService.starteStoppuhrAsync();
+
+        stoppuhr.timer.Elapsed += OnElapsedEvent;
+    }
+
+    public void OnElapsedEvent(Object source, ElapsedEventArgs e)
+    {
+        UpdateTime().Wait();
+    }
+
+    public async Task UpdateTime()
+    {
+        await InvokeAsync(() =>
+        {
+            navigationManager.NavigateTo("Entscheidungsfragen", true);
+
+            StateHasChanged();
+        });
+    }
 
     void SelectionChanged(ChangeEventArgs args)
     {
         antwort = args.Value.ToString();
-
     }
 }
 
