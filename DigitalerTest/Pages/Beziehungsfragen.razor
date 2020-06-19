@@ -66,13 +66,13 @@
         <label><input type="radio" id="Manama" name="Monaco" value="Manama/T1F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Manama</label>
     </div>
 
-    <NavLink href="Entscheidungsfragen">
+    <NavLink href="EntscheidungsfragenStartseite">
         <button class="btn btn-dark">Nächstes Thema</button>
     </NavLink>
 </form>
 
 @code{
-    private Stoppuhr stoppuhr;  //ein KOmmentar
+    private Stoppuhr stoppuhr;  
 
     public Eignungstest eignugstest = new Eignungstest();
 
@@ -98,7 +98,7 @@
     {
         await InvokeAsync(() =>
         {
-            navigationManager.NavigateTo("Entscheidungsfragen", true);
+            navigationManager.NavigateTo("EntscheidungsfragenStartseite", true);
 
             StateHasChanged();
         });

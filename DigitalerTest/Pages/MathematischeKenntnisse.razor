@@ -1,5 +1,10 @@
 ﻿@page "/MathematischeKenntnisse"
-@inject NavigationManager navigationsManager
+
+@using DigitalerTest.Data
+@using System.Timers;
+
+@inject NavigationManager navigationManager
+@inject StoppuhrService stoppuhrService
 
 <h3>Mathematische Kenntnisse</h3>
 
@@ -77,14 +82,35 @@
 </form>
 
 @code{
+    private Stoppuhr stoppuhr;  
 
     public string antwort = "";
-
     public string frage = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        stoppuhr = await stoppuhrService.starteStoppuhrAsync();
+
+        stoppuhr.timer.Elapsed += OnElapsedEvent;
+    }
+
+    private void OnElapsedEvent(Object source, ElapsedEventArgs e)
+    {
+        naechstesThema().Wait();
+    }
+
+    private async Task naechstesThema()
+    {
+        await InvokeAsync(() =>
+        {
+            navigationManager.NavigateTo("RechtschreibungStartseite", true);
+
+            StateHasChanged();
+        });
+    }
 
     void SelectionChanged(ChangeEventArgs args)
     {
         antwort = args.Value.ToString();
-
     }
 }
