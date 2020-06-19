@@ -76,12 +76,14 @@
 
     public Eignungstest eignugstest = new Eignungstest();
 
-    private Themengebiete beziehungsfragen = new Themengebiete();
+    private Themengebiete themengebiet = new Themengebiete();
 
     public string antwort = "";
 
     protected override async Task OnInitializedAsync()
     {
+        themengebiet.titel = "Beziehungsfragen";
+
         stoppuhr = await stoppuhrService.starteStoppuhrAsync();
 
         stoppuhr.timer.Elapsed += OnElapsedEvent;
@@ -113,6 +115,11 @@
 
         frage.antwort = splitAntwort[0];
         frage.ID = splitAntwort[1];
+
+        themengebiet.fragen.Add(new Frage() {
+            antwort = frage.antwort,
+            ID = frage.ID
+        });
     }
 }
 
