@@ -9,76 +9,115 @@
 <h3>Mathematische Kenntnisse</h3>
 
 <form>
-    @*Frage1*@
-    <div>
-        <h5>
-            Welche Zahl kann das Fragezeichen ersetzen?
-        </h5>
-        <p> 2 ? 8 16 32</p>
+    <div class="grid-container">
+        <div class="radiobutton">
+            @*Frage1*@
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Welche Zahl kann das Fragezeichen ersetzen?</h5>
+                    <p> 2 - ? - 8 - 16 - 32</p>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="0" name="Fragezeichen1" value="0/T3F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 0</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="8" name="Fragezeichen1" value="8/T3F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 8</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="4" name="Fragezeichen1" value="4/T3F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 4</label>
+                </div>
+                <div class="col-md-6">
+                    <label><input type="radio" id="12" name="Fragezeichen1" value="12/T3F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 12</label>
+                </div>
+            </div>
+            @*Frage2*@
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Welche Zahl kann das Fragezeichen ersetzen?</h5>
+                    <p>0 - ? - 0.5 - 0.75 - 1</p>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="0,25" name="Fragezeichen2" value="0,25/T3F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 0,25</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="0,6" name="Fragezeichen2" value="0,6/T3F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 0,6</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="2" name="Fragezeichen2" value="2/T3F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 2</label>
+                </div>
+                <div class="col-md-6">
+                    <label><input type="radio" id="10" name="Fragezeichen2" value="10/T3F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 10</label>
+                </div>
+            </div>
+            @*Frage3*@
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>
+                        Von den 26 Schülern haben 2 Schüler eine 1 geschrieben, und weitere 4 haben die Note 2. <br />
+                        25% der übrigen Schüler haben eine 3. <br />
+                        Die Anderen waren hatten eine 4 oder schlechter. <br />
+                        Wie viele der Schüler haben eine 3 oder sind besser?
+                    </h5>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="12" name="Besser3" value="12/T3F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 12</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="9" name="Besser3" value="9/T3F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 9</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="13" name="Besser3" value="13/T3F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 13</label>
+                </div>
+                <div class="col-md-6">
+                    <label><input type="radio" id="11" name="Besser3" value="11/T3F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 11</label>
+                </div>
+            </div>
+            @*Frage4*@
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Geben Sie folgenden Bruch in Prozent an: 2/3</h5>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="66" name="Prozent" value="66/T3F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 66%</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="66,3" name="Prozent" value="66,3/T3F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 66,3%</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="66,6" name="Prozent" value="66,6/T3F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 66,6%</label>
+                </div>
+                <div class="col-md-6">
+                    <label><input type="radio" id="66,9" name="Prozent" value="66,9/T3F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 66,9%</label>
+                </div>
+            </div>
+            @*Frage5*@
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Geben Sie das Ergebnis für folgende Gleichung an.</h5>
+                    <p>x = 7 + 9 * (6 - 3)</p>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="34" name="x" value="34/T3F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 34</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="48" name="x" value="48/T3F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 48</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="33" name="x" value="33/T3F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 33</label>
+                </div>
+                <div class="col-md-6">
+                    <label><input type="radio" id="58" name="x" value="58/T3F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 58</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-12">
+                    <NavLink href="RechtschreibungStartseite">
+                        <button class="btn btn-dark">Nächstes Thema</button>
+                    </NavLink>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="radiobutton">
-        <label><input type="radio" id="0" name="Fragezeichen1" value="0/T3F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 0</label>
-        <label><input type="radio" id="8" name="Fragezeichen1" value="8/T3F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 8</label>
-        <label><input type="radio" id="4" name="Fragezeichen1" value="4/T3F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 4</label>
-        <label><input type="radio" id="12" name="Fragezeichen1" value="12/T3F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 12</label>
-    </div>
-    @*Frage2*@
-    <div>
-        <h5>
-            Welche Zahl kann das Fragezeichen ersetzen?
-        </h5>
-        <p>0 ? 0.5 0.75 1</p>
-    </div>
-    <div class="radiobutton">
-        <label><input type="radio" id="0,25" name="Fragezeichen2" value="0,25/T3F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 0,25</label>
-        <label><input type="radio" id="0,6" name="Fragezeichen2" value="0,6/T3F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 0,6</label>
-        <label><input type="radio" id="2" name="Fragezeichen2" value="2/T3F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 2</label>
-        <label><input type="radio" id="10" name="Fragezeichen2" value="10/T3F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 10</label>
-    </div>
-    @*Frage3*@
-    <div>
-        <h5>
-            Von den 26 Schülern haben 2 Schüler eine 1 geschrieben, und weitere 4 haben die Note 2.
-            25% der übrigen Schüler haben eine 3.
-            Die Anderen waren hatten eine 4 oder schlechter.
-            Wie viele der Schüler haben eine 3 oder sind besser?
-        </h5>
-    </div>
-    <div class="radiobutton">
-        <label><input type="radio" id="12" name="Besser3" value="12/T3F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 12</label>
-        <label><input type="radio" id="9" name="Besser3" value="9/T3F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 9</label>
-        <label><input type="radio" id="13" name="Besser3" value="13/T3F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 13</label>
-        <label><input type="radio" id="11" name="Besser3" value="11/T3F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 11</label>
-    </div>
-    @*Frage4*@
-    <div>
-        <h5>
-            Geben Sie folgenden Bruch in Prozent an: 2/3
-        </h5>
-    </div>
-    <div class="radiobutton">
-        <label><input type="radio" id="66" name="Prozent" value="66/T3F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 66%</label>
-        <label><input type="radio" id="66,3" name="Prozent" value="66,3/T3F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 66,3%</label>
-        <label><input type="radio" id="66,6" name="Prozent" value="66,6/T3F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 66,6%</label>
-        <label><input type="radio" id="66,9" name="Prozent" value="66,9/T3F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 66,9%</label>
-    </div>
-    @*Frage5*@
-    <div>
-        <h5>
-            Geben Sie das Ergebnis für folgende Gleichung an.
-        </h5>
-        <p>x = 7 + 9 * (6 - 3)</p>
-    </div>
-    <div class="radiobutton">
-        <label><input type="radio" id="34" name="x" value="34/T3F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 34</label>
-        <label><input type="radio" id="48" name="x" value="48/T3F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 48</label>
-        <label><input type="radio" id="33" name="x" value="33/T3F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 33</label>
-        <label><input type="radio" id="58" name="x" value="58/T3F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> 58</label>
-    </div>
-
-    <NavLink href="Rechtschreibung">
-        <button class="btn btn-dark">Nächstes Thema</button>
-    </NavLink>
 </form>
 
 @code{

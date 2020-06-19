@@ -6,10 +6,47 @@
 @inject StoppuhrService stoppuhrService
 
 <h3>Testanweisung Mathematische Kenntnisse</h3>
+<div class="row">
+    <div class="col-md-12">
+        Es werden Ihnen mathematische Rechenaufgaben vorgegeben, welche nach bestimmten Regeln aufgebaut sind. <br />
+        Ihre Aufgabe ist es, diese durch Anwenden Ihrer Mathematik-Kenntnisse zu lösen und die richtige Antwort anzugeben.
+    </div>
+    <div class="col-md-12">
+        <h3 class="text-danger">Achtung!</h3>
+    </div>
+    <div class="col-md-12">
+        Es ist immer nur eine Möglichkeit richtig, demnach müssen Sie sich für eine Antwortmöglichkeit entscheiden.  <br />
+        Sie haben für diesen Test 10 Minuten Zeit. Die Zeit läuft automatisch ab. <br />
+        Falls Sie nicht alle Fragen in der vorgegebenen Zeit beantworten können, werden unbeantwortete Fragen als Fehler gewertet.
+    </div>
+</div>
 
-<p>abcde</p>
+<div class="grid-container">
+    <div class="radiobutton">
+        @* Beispielfrage *@
+        <div class="row">
+            <div class="col-md-12">
+                <h5>Beispiel:</h5> <br />
+                Herr Mustermann kauft 10 neue Bürostühle für je 20€. <br />
+                Wie viel müsste er für 15 neue Bürostühle zahlen, wenn er den gleichen Grundpreis zahlen muss?
+            </div>
+            <div class="col-md-2">
+                <label><input type="radio" disabled /> 340€</label>
+            </div>
+            <div class="col-md-2">
+                <label><input type="radio" disabled /> 200€</label>
+            </div>
+            <div class="col-md-2">
+                <label><input type="radio" disabled /> 280€</label>
+            </div>
+            <div class="col-md-6">
+                <label><input type="radio" checked /> 300€</label>
+            </div>
+        </div>
+    </div>
+</div>
 
 <NavLink href="MathematischeKenntnisse">
-    <button class="btn btn-dark">Nächstes Thema</button>
+    <button class="btn btn-dark">Testbeginn</button>
 </NavLink>
 

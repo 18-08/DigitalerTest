@@ -207,11 +207,11 @@ app {
         display: block;
     }
 
-    input:invalid {
+    .id_number:invalid {
         outline: 1px solid red;
     }
 
-    input:valid {
-        outline: green;
+    .id_number:valid {
+        outline: 1px solid green;
     }
 }
