@@ -83,12 +83,12 @@
         stoppuhr.timer.Elapsed += OnElapsedEvent;
     }
 
-    public void OnElapsedEvent(Object source, ElapsedEventArgs e)
+    private void OnElapsedEvent(Object source, ElapsedEventArgs e)
     {
-        UpdateTime().Wait();
+        naechstesThema().Wait();
     }
 
-    public async Task UpdateTime()
+    private async Task naechstesThema()
     {
         await InvokeAsync(() =>
         {
