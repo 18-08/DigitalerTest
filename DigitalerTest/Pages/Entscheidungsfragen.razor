@@ -1,6 +1,7 @@
 ﻿@page "/Entscheidungsfragen"
 
 @using DigitalerTest.Data
+@using DigitalerTest.Pages
 @using System.Timers;
 
 @inject NavigationManager navigationManager
@@ -71,18 +72,23 @@
     </div>
 
     <NavLink href="MathematischeKenntnisse">
-        <button class="btn btn-dark">Nächstes Thema</button>
+        <button class="btn btn-dark" @onclick="ThemaHinzufuegen">Nächstes Thema</button>
     </NavLink>
 </form>
 
 @code{
-    private Stoppuhr stoppuhr;  
+    private Index test = new Index();
+    private Beziehungsfragen beziehungsfragen = new Beziehungsfragen();
+
+    private Stoppuhr stoppuhr;
+    private Themengebiete themengebiet = new Themengebiete();
 
     public string antwort = "";
-    public string frage = "";
 
     protected override async Task OnInitializedAsync()
     {
+        themengebiet.titel = "Entscheidungsfragen";
+
         stoppuhr = await stoppuhrService.starteStoppuhrAsync();
 
         stoppuhr.timer.Elapsed += OnElapsedEvent;
@@ -90,6 +96,7 @@
 
     private void OnElapsedEvent(Object source, ElapsedEventArgs e)
     {
+        stoppuhr.stoppeStoppuhr();
         naechstesThema().Wait();
     }
 
@@ -97,6 +104,8 @@
     {
         await InvokeAsync(() =>
         {
+            ThemaHinzufuegen();
+
             navigationManager.NavigateTo("MathematischeKenntnisseStartseite", true);
 
             StateHasChanged();
@@ -105,6 +114,25 @@
 
     void SelectionChanged(ChangeEventArgs args)
     {
+        string[] splitAntwort;
+        Frage frage = new Frage();
+
         antwort = args.Value.ToString();
+
+        splitAntwort = antwort.Split("/");
+
+        frage.antwort = splitAntwort[0];
+        frage.ID = splitAntwort[1];
+
+        themengebiet.fragen.Add(new Frage()
+        {
+            antwort = frage.antwort,
+            ID = frage.ID
+        });
+    }
+
+    private void ThemaHinzufuegen()
+    {
+        test.eignungstest.themengebiete.Add(themengebiet);
     }
 }

@@ -1,6 +1,7 @@
 ﻿@page "/Beziehungsfragen"
 
 @using DigitalerTest.Data
+@using DigitalerTest.Pages
 @using System.Timers;
 @using static DigitalerTest.Data.Themengebiete
 
@@ -67,15 +68,15 @@
     </div>
 
     <NavLink href="EntscheidungsfragenStartseite">
-        <button class="btn btn-dark">Nächstes Thema</button>
+        <button class="btn btn-dark" @onclick="ThemaHinzufuegen">Nächstes Thema</button>
     </NavLink>
 </form>
 
 @code{
-    private Stoppuhr stoppuhr;  
 
-    public Eignungstest eignugstest = new Eignungstest();
+    private Index test = new Index();
 
+    private Stoppuhr stoppuhr;
     private Themengebiete themengebiet = new Themengebiete();
 
     public string antwort = "";
@@ -91,6 +92,7 @@
 
     private void OnElapsedEvent(Object source, ElapsedEventArgs e)
     {
+        stoppuhr.stoppeStoppuhr();
         naechstesThema().Wait();
     }
 
@@ -98,6 +100,8 @@
     {
         await InvokeAsync(() =>
         {
+            ThemaHinzufuegen();
+
             navigationManager.NavigateTo("EntscheidungsfragenStartseite", true);
 
             StateHasChanged();
@@ -120,6 +124,11 @@
             antwort = frage.antwort,
             ID = frage.ID
         });
+    }
+
+    private void ThemaHinzufuegen()
+    {
+        test.eignungstest.themengebiete.Add(themengebiet);
     }
 }
 

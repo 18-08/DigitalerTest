@@ -1,6 +1,8 @@
 ﻿@page "/"
 @inject NavigationManager navigationsManager
 
+@using DigitalerTest.Data
+
     <div class="row">
         <div class="col-md-12">
             <h1>Willkommen bei Ihrem Eignungstest</h1>
@@ -36,5 +38,9 @@
             </NavLink>
         </div>
     </div>
+
+@code{
+    public Eignungstest eignungstest = new Eignungstest();
+}
 
 
