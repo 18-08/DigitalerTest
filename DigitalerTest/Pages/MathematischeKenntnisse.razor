@@ -6,6 +6,7 @@
 
 @inject NavigationManager navigationManager
 @inject StoppuhrService stoppuhrService
+@inject Eignungstest eignungstest
 
 <h3>Mathematische Kenntnisse</h3>
 
@@ -122,8 +123,6 @@
 </form>
 
 @code{
-    private Index test = new Index();
-
     private Stoppuhr stoppuhr;
     private Themengebiete themengebiet = new Themengebiete();
 
@@ -177,13 +176,13 @@
 
     private void ThemaHinzufuegen()
     {
-        test.eignungstest.themengebiete.Add(themengebiet);
+        eignungstest.themengebiete.Add(themengebiet);
     }
 
     private void StoppeStoppuhr()
     {
         stoppuhr.stoppeStoppuhr();
 
-        test.eignungstest.themengebiete.Add(themengebiet);
+        eignungstest.themengebiete.Add(themengebiet);
     }
 }

@@ -1,12 +1,11 @@
 ﻿@page "/Beziehungsfragen"
 
 @using DigitalerTest.Data
-@using DigitalerTest.Pages
 @using System.Timers;
-@using static DigitalerTest.Data.Themengebiete
 
 @inject NavigationManager navigationManager
 @inject StoppuhrService stoppuhrService
+@inject Eignungstest eignungstest
 
 <h3>Beziehungsfragen</h3>
 
@@ -104,7 +103,7 @@
                 </div>
             </div>
             <div class="row">
-                <div  class="col-md-12">
+                <div class="col-md-12">
                     <NavLink href="EntscheidungsfragenStartseite">
                         <button class="btn btn-dark" @onclick="StoppeStoppuhr">Nächstes Thema</button>
                     </NavLink>
@@ -115,12 +114,10 @@
 </form>
 
 @code{
-    private Index test = new Index();
-
     private Stoppuhr stoppuhr;
     private Themengebiete themengebiet = new Themengebiete();
 
-    public string antwort = "";
+    private string antwort = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -161,7 +158,8 @@
         frage.antwort = splitAntwort[0];
         frage.ID = splitAntwort[1];
 
-        themengebiet.fragen.Add(new Frage() {
+        themengebiet.fragen.Add(new Frage()
+        {
             antwort = frage.antwort,
             ID = frage.ID
         });
@@ -169,14 +167,14 @@
 
     private void ThemaHinzufuegen()
     {
-        test.eignungstest.themengebiete.Add(themengebiet);
+        eignungstest.themengebiete.Add(themengebiet);
     }
 
     private void StoppeStoppuhr()
     {
         stoppuhr.stoppeStoppuhr();
 
-        test.eignungstest.themengebiete.Add(themengebiet);
+        eignungstest.themengebiete.Add(themengebiet);
     }
 }
 

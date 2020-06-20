@@ -1,5 +1,10 @@
 ﻿@page "/TestBeendet"
 
+@using DigitalerTest.Data
+@using DigitalerTest.Pages
+
+@inject Eignungstest eignungstest
+
 <div class="row">
     <div class="col-md-12">
         <h3>Herzlichen Glückwunsch</h3>
@@ -10,4 +15,21 @@
         <p>Sie haben den Test erfolgreich beendet. <br /> Bitte bleiben Sie sitzen und verhalten Sie sich ruhig, bis die zuständige Aufsichtsperson sich bei Ihnen meldet.</p>
     </div>
 </div>
+
+<button @onclick="play">Sammeln</button>
+
+@code{
+    private void play()
+    {
+        //System.Diagnostics.Debug.Print(eignungstest.themengebiete.Count.ToString());
+
+        foreach(Themengebiete thema in eignungstest.themengebiete)
+        {
+            foreach(Frage frage in thema.fragen)
+            {
+                System.Diagnostics.Debug.Print(thema.titel + ";" + frage.ID + ";" + frage.antwort);  //eine Zeile in der CSV
+            }
+        }
+    }
+}
 

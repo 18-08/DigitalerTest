@@ -1,11 +1,11 @@
 ﻿@page "/Entscheidungsfragen"
 
 @using DigitalerTest.Data
-@using DigitalerTest.Pages
 @using System.Timers;
 
 @inject NavigationManager navigationManager
 @inject StoppuhrService stoppuhrService
+@inject Eignungstest eignungstest
 
 <h3>Entscheidungsfragen</h3>
 
@@ -59,7 +59,7 @@
                 <div class="col-md-2">
                     <label><input type="radio" id="Bremen" name="Stadt" value="Bremen/T2F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Bremen</label>
                 </div>
-                <div class="col-md-2"
+                <div class="col-md-2">
                     <label><input type="radio" id="Berlin" name="Stadt" value="Berlin/T2F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Berlin</label>
                 </div>
                 <div class="col-md-6">
@@ -114,8 +114,6 @@
 </form>
 
 @code{
-    private Index test = new Index();
-
     private Stoppuhr stoppuhr;
     private Themengebiete themengebiet = new Themengebiete();
 
@@ -169,13 +167,13 @@
 
     private void ThemaHinzufuegen()
     {
-        test.eignungstest.themengebiete.Add(themengebiet);
+        eignungstest.themengebiete.Add(themengebiet);
     }
 
     private void StoppeStoppuhr()
     {
         stoppuhr.stoppeStoppuhr();
 
-        test.eignungstest.themengebiete.Add(themengebiet);
+        eignungstest.themengebiete.Add(themengebiet);
     }
 }
