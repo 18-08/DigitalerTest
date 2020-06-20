@@ -198,7 +198,7 @@
     private Stoppuhr stoppuhr;
     private Themengebiete themengebiet = new Themengebiete();
 
-    public string antwort = "";
+    private string antwort = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -227,7 +227,7 @@
         });
     }
 
-    void SelectionChanged(ChangeEventArgs args)
+    private void SelectionChanged(ChangeEventArgs args)
     {
         string[] splitAntwort;
         Frage frage = new Frage();
