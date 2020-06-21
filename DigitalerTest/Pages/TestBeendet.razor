@@ -16,12 +16,29 @@
     </div>
 </div>
 
-<button @onclick="play">Sammeln</button>
+<button @onclick="export">Sammeln</button>
 
 @code{
-    private void play()
+    private void doppelteFragen()
+    {
+        string fragenID = "";
+
+        foreach (Themengebiete thema in eignungstest.themengebiete)
+        {
+            foreach (Frage frage in thema.fragen)
+            {
+                fragenID = frage.ID;
+                
+                //fragenID suchen fuer Doppelte
+                //Index abfragen    größter Index == letzte Eingabe
+            }
+        }
+    }
+
+    private void export()
     {
         //System.Diagnostics.Debug.Print(eignungstest.themengebiete.Count.ToString());
+
 
         foreach(Themengebiete thema in eignungstest.themengebiete)
         {
