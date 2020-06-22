@@ -2,6 +2,7 @@
 
 @using DigitalerTest.Data
 @using DigitalerTest.Pages
+@using System.IO
 
 @inject Eignungstest eignungstest
 
@@ -28,7 +29,7 @@
             foreach (Frage frage in thema.fragen)
             {
                 fragenID = frage.ID;
-                
+
                 //fragenID suchen fuer Doppelte
                 //Index abfragen    größter Index == letzte Eingabe
             }
@@ -37,14 +38,22 @@
 
     private void export()
     {
-        //System.Diagnostics.Debug.Print(eignungstest.themengebiete.Count.ToString());
+        string ordnerName = @"C:\Eignungstest/";
+        string dokumentenName = "Ergebnisblatt.csv";
+        string ordnerPfad = System.IO.Path.Combine(ordnerName, eignungstest.identifier.ToString());
 
+        System.IO.Directory.CreateDirectory(ordnerPfad);
 
-        foreach(Themengebiete thema in eignungstest.themengebiete)
+        using (StreamWriter sw = new StreamWriter(ordnerPfad + "/" + dokumentenName))
         {
-            foreach(Frage frage in thema.fragen)
+            sw.WriteLine("Themengebiet" + ";" + "Fragenkennung" + ";" + "Antwort");
+
+            foreach (Themengebiete thema in eignungstest.themengebiete)
             {
-                System.Diagnostics.Debug.Print(thema.titel + ";" + frage.ID + ";" + frage.antwort);  //eine Zeile in der CSV
+                foreach (Frage frage in thema.fragen)
+                {
+                    sw.WriteLine(thema.titel + ";" + frage.ID + ";" + frage.antwort);
+                }
             }
         }
     }

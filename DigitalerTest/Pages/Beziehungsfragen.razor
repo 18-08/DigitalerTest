@@ -1,7 +1,7 @@
 ﻿@page "/Beziehungsfragen"
 
 @using DigitalerTest.Data
-@using System.Timers;
+@using System.Timers
 
 @inject NavigationManager navigationManager
 @inject StoppuhrService stoppuhrService
@@ -117,6 +117,8 @@
     private Stoppuhr stoppuhr;
     private Themengebiete themengebiet = new Themengebiete();
 
+    private bool halbzeit = false;
+
     private string antwort = "";
 
     protected override async Task OnInitializedAsync()
@@ -130,7 +132,12 @@
 
     private void OnElapsedEvent(Object source, ElapsedEventArgs e)
     {
-        stoppuhr.stoppeStoppuhr();
+        if(halbzeit == false)
+        {
+            stoppuhr.timer.R
+
+        }
+
         naechstesThema().Wait();
     }
 
