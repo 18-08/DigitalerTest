@@ -3,6 +3,7 @@
 @using DigitalerTest.Pages
 @using DigitalerTest.Data
 @using System.Timers;
+@using System.IO;
 
 @inject StoppuhrService stoppuhrService
 @inject NavigationManager navigationManager
@@ -186,7 +187,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <NavLink href="TestBeendet">
-                        <button class="btn btn-dark" @onclick="StoppeStoppuhr">Test beenden!</button>
+                        <button class="btn btn-dark" @onclick="Abgabe">Test beenden!</button>
                     </NavLink>
                 </div>
             </div>
@@ -209,10 +210,18 @@
         stoppuhr.timer.Elapsed += OnElapsedEvent;
     }
 
+    private void Abgabe()
+    {
+        stoppuhr.stoppeStoppuhr();
+        naechstesThema().Wait();
+        SpeicherDaten();
+    }
+
     private void OnElapsedEvent(Object source, ElapsedEventArgs e)
     {
         stoppuhr.stoppeStoppuhr();
         naechstesThema().Wait();
+        SpeicherDaten();
     }
 
     private async Task naechstesThema()
@@ -251,10 +260,25 @@
         eignungstest.themengebiete.Add(themengebiet);
     }
 
-    private void StoppeStoppuhr()
+    private void SpeicherDaten()
     {
-        stoppuhr.stoppeStoppuhr();
+        string ordnerName = @"C:\Eignungstest/";
+        string dokumentenName = "Ergebnisblatt.csv";
+        string ordnerPfad = System.IO.Path.Combine(ordnerName, eignungstest.identifier.ToString());
 
-        eignungstest.themengebiete.Add(themengebiet);
+        System.IO.Directory.CreateDirectory(ordnerPfad);
+
+        using (StreamWriter sw = new StreamWriter(ordnerPfad + "/" + dokumentenName))
+        {
+            sw.WriteLine("Themengebiet" + ";" + "Fragenkennung" + ";" + "Antwort");
+
+            foreach (Themengebiete thema in eignungstest.themengebiete)
+            {
+                foreach (Frage frage in thema.fragen)
+                {
+                    sw.WriteLine(thema.titel + ";" + frage.ID + ";" + frage.antwort);
+                }
+            }
+        }
     }
 }

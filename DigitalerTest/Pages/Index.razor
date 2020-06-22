@@ -23,6 +23,7 @@
             <div class="form-group">
             <label for="IDNummer">Idenfikikationsnummer</label>
             <InputText @bind-Value="identifikationsNr.IDNummer" class="form-control" id="IDNummer"/>
+                <ValidationMessage For="() => identifikationsNr.IDNummer"></ValidationMessage>
             </div>
 
 

@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<button @onclick="export">Sammeln</button>
+<button>Sammeln</button>
 
 @code{
     private void doppelteFragen()
@@ -32,28 +32,6 @@
 
                 //fragenID suchen fuer Doppelte
                 //Index abfragen    größter Index == letzte Eingabe
-            }
-        }
-    }
-
-    private void export()
-    {
-        string ordnerName = @"C:\Eignungstest/";
-        string dokumentenName = "Ergebnisblatt.csv";
-        string ordnerPfad = System.IO.Path.Combine(ordnerName, eignungstest.identifier.ToString());
-
-        System.IO.Directory.CreateDirectory(ordnerPfad);
-
-        using (StreamWriter sw = new StreamWriter(ordnerPfad + "/" + dokumentenName))
-        {
-            sw.WriteLine("Themengebiet" + ";" + "Fragenkennung" + ";" + "Antwort");
-
-            foreach (Themengebiete thema in eignungstest.themengebiete)
-            {
-                foreach (Frage frage in thema.fragen)
-                {
-                    sw.WriteLine(thema.titel + ";" + frage.ID + ";" + frage.antwort);
-                }
             }
         }
     }
