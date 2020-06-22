@@ -5,8 +5,11 @@
 @using System
 
 @inject Eignungstest eignungstest
+@inject NavigationManager navMan
 
-<EditForm Model="@starship" OnInvalidSubmit="@HandleValidSubmit">
+@*<EditForm Model="@starship" OnInvalidSubmit="@HandleValidSubmit">*@
+<EditForm Model="@identifikationsNr" >
+<DataAnnotationsValidator/>
     <div class="row">
         <div class="col-md-12">
             <h1>Willkommen bei Ihrem Eignungstest</h1>
@@ -16,11 +19,13 @@
         <div class="col-md-12">
             Bitte geben Sie Ihre Identifikationsnummer an! <br />
             @*<input type="text" class="id_number" pattern="[0-9]{7}" required placeholder="Identifikationsnummer" />*@
-            <p>
-                <label for="identifier">Identifikationsnummer: </label>
-                <InputText id="identifier" @bind-Value="starship.Identifier" />
-                <ValidationMessage For="() => starship.Identifier" />
-            </p>
+            
+            <div class="form-group">
+            <label for="IDNummer">Idenfikikationsnummer</label>
+            <InputText @bind-Value="identifikationsNr.IDNummer" class="form-control" id="IDNummer"/>
+            </div>
+
+
         </div>
     </div>
     <div class="row">
@@ -47,30 +52,46 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <NavLink href="BeziehungsfragenStartseite">
+            @*<NavLink type="submit" href="BeziehungsfragenStartseite">
                 <button class="btn btn-dark">Test beginnen!</button>
-            </NavLink>
+            </NavLink>*@
+
+                <input type="submit" class="btn btn-primary" value="Test starten" @onclick="HandleValidSubmit" />        
         </div>
     </div>
 </EditForm>
 
 @code
 {
-    public class Starship
-    {
-        [Required]
-        [StringLength(7, ErrorMessage = "Identifikationsnummer ist zu lang (max. 7 Zeichen lang).")]
-        public String Identifier { get; set; }
+    IdentifikationsNr identifikationsNr = new IdentifikationsNr();
 
-    }
-    private Starship starship = new Starship();
-
-    private void HandleValidSubmit()
+    void HandleValidSubmit()
     {
+        if(pruefeID(identifikationsNr.IDNummer) == true)
+        {
+            navMan.NavigateTo("BeziehungsfragenStartseite");
+        }
         // Save the data
 
         //sichern der Ident Nummer
         //eignungstest.identifier = Identifier;
+    }
+
+    private bool pruefeID(string ident)
+    {
+        if(ident == null)
+        {
+            ident = "default";
+        }
+
+        if(ident.Length == 7 && ident.All(char.IsDigit) == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }
