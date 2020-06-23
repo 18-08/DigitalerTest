@@ -8,7 +8,7 @@
 @inject Eignungstest eignungstest
 @inject IToastService toastService
 
-<h3>Beziehungsfragen</h3>
+<h2>Beziehungsfragen</h2>
 
 <form>
     <div class="grid-container">
@@ -27,7 +27,7 @@
                 <div class="col-md-2">
                     <label><input type="radio" id="Garten" name="Haus" value="Garten/T1F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Garten</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <label><input type="radio" id="Tür" name="Haus" value="Tür/T1F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Tür</label>
                 </div>
             </div>

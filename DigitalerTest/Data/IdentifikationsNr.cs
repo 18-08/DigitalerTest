@@ -10,7 +10,7 @@ namespace DigitalerTest.Data
 {
     public class IdentifikationsNr
     {
-        [Required]
+        [Required(ErrorMessage = "Dieses Feld darf nicht leer sein!")]
         [RegularExpression("[0-9]{7,7}", ErrorMessage = "Bitte überprüfen Sie Ihre Identifikationsnummer!")]
         
         public string IDNummer { get; set; }
