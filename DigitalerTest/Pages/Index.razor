@@ -16,17 +16,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            Bitte geben Sie Ihre Identifikationsnummer an! <br />
-            @*<input type="text" class="id_number" pattern="[0-9]{7}" required placeholder="Identifikationsnummer" />*@
-            
-            <div class="form-group">
-            <label for="IDNummer">Idenfikikationsnummer</label>
-            <InputText @bind-Value="identifikationsNr.IDNummer" class="form-control" id="IDNummer"/>
+        <div class="col-md-6">
+            Bitte geben Sie Ihre 7-stellige Identifikationsnummer an: <br />     
+            <InputText @bind-Value="identifikationsNr.IDNummer" class="form-control" id="IDNummer" placeholder="Identifikationsnummer"/>
                 <ValidationMessage For="() => identifikationsNr.IDNummer"></ValidationMessage>
-            </div>
-
-
         </div>
     </div>
     <div class="row">
@@ -42,21 +35,17 @@
                 <li>Bevor Sie mit einem Themengebiet beginnen, erhalten Sie eine Unterweisung mit Beispielen zum besseren Verständnis.</li>
                 <li>Für jedes Themengebiet haben Sie eine Zeitvorgabe. Diese erfahren Sie vor dem jeweiligen Test.</li>
                 <li>Falls Sie dennoch Fragen haben, wenden Sie sich bitte an Ihren Testleiter.</li>
-                <li>Bitte überprügfen Sie nach Beendigung des Testgebietes Ihre Fragen. Sobald Sie in den nächsten Test gelangen, sind Änderungen nicht mehr möglich.</li>
+                <li>Bitte überprüfen Sie nach Beendigung des Testgebietes Ihre Fragen. Sobald Sie in den nächsten Test gelangen, sind Änderungen nicht mehr möglich.</li>
                 <li>Ihre Antworten werden am Ende automatisch gespeichert.</li>
                 <li>Weitere Infos zum Datenschutz finden Sie hier. @*Link einbinden!*@ </li>
             </ul>
         </div>
         <div>
-            Wir wünschen Ihnen viel Erfolg!
+            <h3>Wir wünschen Ihnen viel Erfolg!</h3>
         </div>
     </div>
     <div class="row">
         <div class="col-md-10">
-            @*<NavLink type="submit" href="BeziehungsfragenStartseite">
-                <button class="btn btn-dark">Test beginnen!</button>
-            </NavLink>*@
-
             <input type="submit" class="button" value="Test starten" @onclick="HandleValidSubmit" />        
         </div>
     </div>
