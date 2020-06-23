@@ -1,21 +1,33 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Calibri;
+    font-size: larger;
 }
 
 a, .btn-link {
     color: #0366d6;
 }
 
+li{
+    padding: 5px;
+}
+
+h5{
+    font-size:larger;
+}
+
+h2{
+    text-decoration: underline;
+}
+
 .button {
     float: right;
-    padding: 6px 24px;
+    padding: 3px 15px;
     background-color: rgb(5, 39, 103);
-    border: 4px solid rgb(5, 39, 103);
+    border: 2px solid rgb(5, 39, 103);
     border-radius: 12px;
     color: white;
-    font-weight: bold;
     transition-duration: 400ms;
 }
     .button:hover {

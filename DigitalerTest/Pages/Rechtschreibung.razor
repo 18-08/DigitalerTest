@@ -9,11 +9,11 @@
 @inject NavigationManager navigationManager
 @inject Eignungstest eignungstest 
 
-<h3>Rechtschreibung</h3>
+<h2>Rechtschreibung</h2>
 
 <form>
-    <div>
-        <h5>
+    <div class="row">
+        <h5 class="col-md-12">
             Bitte wählen Sie die richtige Schreibweise. <br />
         </h5>
     </div>
@@ -30,7 +30,7 @@
                 <div class="col-md-2">
                     <label><input type="radio" id="Akkupunktur" name="Akupunktur" value="Akkupunktur/T4F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Akkupunktur</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <label><input type="radio" id="Acupunktur" name="Akupunktur" value="Acupunktur/T4F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Acupunktur</label>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                 <div class="col-md-2">
                     <label><input type="radio" id="autorisieren" name="autorisieren" value="autorisieren/T4F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> autorisieren</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <label><input type="radio" id="auturisieren" name="autorisieren" value="auturisieren/T4F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> auturisieren</label>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                 <div class="col-md-2">
                     <label><input type="radio" id="Ekstase" name="Ekstase" value="Ekstase/T4F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Ekstase</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <label><input type="radio" id="Ekstasse" name="Ekstase" value="Ekstasse/T4F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Ekstasse</label>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 <div class="col-md-2">
                     <label><input type="radio" id="prophylaxe" name="prophylaxe" value="prophylaxe/T4F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> prophylaxe</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <label><input type="radio" id="prophilaxe" name="prophylaxe" value="prophilaxe/T4F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> prophilaxe</label>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                 <div class="col-md-2">
                     <label><input type="radio" id="reziprog" name="reziprok" value="reziprog/T4F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> reziprog</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <label><input type="radio" id="reziprock" name="reziprok" value="reziprock/T4F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> reziprock</label>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                 <div class="col-md-2">
                     <label><input type="radio" id="Sillouette" name="Silhouette" value="Sillouette/T4F6" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Sillouette</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <label><input type="radio" id="Silluette" name="Silhouette" value="Silluette/T4F6" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Silluette</label>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                 <div class="col-md-2">
                     <label><input type="radio" id="Turnier" name="Turnier" value="Turnier/T4F7" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Turnier</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <label><input type="radio" id="Tunnier" name="Turnier" value="Tunnier/T4F7" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Tunnier</label>
                 </div>
             </div>
@@ -135,7 +135,7 @@
                 <div class="col-md-2">
                     <label><input type="radio" id="verpönt" name="verpönt" value="verpönt/T4F8" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> verpönt</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <label><input type="radio" id="verpönnt" name="verpönt" value="verpönnt/T4F8" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> verpönnt</label>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                 <div class="col-md-2">
                     <label><input type="radio" id="wiederum" name="wiederum" value="wiederum/T4F9" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> wiederum</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <label><input type="radio" id="widerum" name="wiederum" value="widerum/T4F9" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> widerum</label>
                 </div>
             </div>
@@ -165,7 +165,7 @@
                 <div class="col-md-2">
                     <label><input type="radio" id="zuwieder" name="zuwider" value="zuwieder/T4F10" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> zuwieder</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <label><input type="radio" id="zuwidder" name="zuwider" value="zuwidder/T4F10" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> zuwidder</label>
                 </div>
             </div>
@@ -180,7 +180,7 @@
                 <div class="col-md-2">
                     <label><input type="radio" id="Rückgrad" name="Rückgrat" value="Rückgrad/T4F11" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Rückgrad</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <label><input type="radio" id="Rückrad" name="Rückgrat" value="Rückrad/T4F11" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Rückrad</label>
                 </div>
             </div>
