@@ -1,0 +1,187 @@
+﻿@page "/Beziehungsfragen"
+
+@using DigitalerTest.Data
+@using System.Timers
+
+@inject NavigationManager navigationManager
+@inject StoppuhrService stoppuhrService
+@inject Eignungstest eignungstest
+
+<h3>Beziehungsfragen</h3>
+
+<form>
+    <div class="grid-container">
+        <div class="radiobutton">
+            @*Frage1*@
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Baum - Pflanze <br /> Haus - ?</h5>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Grundstück" name="Haus" value="Grundstück/T1F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Grundstück</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Gebäude" name="Haus" value="Gebäude/T1F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Gebäude</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Garten" name="Haus" value="Garten/T1F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Garten</label>
+                </div>
+                <div class="col-md-6">
+                    <label><input type="radio" id="Tür" name="Haus" value="Tür/T1F1" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Tür</label>
+                </div>
+            </div>
+            @*Frage2*@
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Hund - Welpe <br /> Pferd - ?</h5>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Baby" name="Pferd" value="Baby/T1F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Baby</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Neugeborenes" name="Pferd" value="Neugeborenes/T1F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Neugeborenes</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Eltern" name="Pferd" value="Eltern/T1F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Eltern</label>
+                </div>
+                <div class="col-md-6">
+                    <label><input type="radio" id="Fohlen" name="Pferd" value="Fohlen/T1F2" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Fohlen</label>
+                </div>
+            </div>
+            @*Frage3*@
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Violine - Streichinstrument <br /> Tuba - ?</h5>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Blasinstrument" name="Tuba" value="Blasinstrument/T1F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Blasinstrument</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Kontrabass" name="Tuba" value="Kontrabass/T1F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Kontrabass</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Zupfinstrument" name="Tuba" value="Zupfinstrument/T1F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Zupfinstrument</label>
+                </div>
+                <div class="col-md-6">
+                    <label><input type="radio" id="Trompete" name="Tuba" value="Trompete/T1F3" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Trompete</label>
+                </div>
+            </div>
+            @*Frage4*@
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Fisch - Wasser <br /> ? - Luft</h5>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Flugzeug" name="Luft" value="Flugzeug/T1F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Flugzeug</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Vogel" name="Luft" value="Vogel/T1F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Vogel</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Baum" name="Luft" value="Baum/T1F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Baum</label>
+                </div>
+                <div class="col-md-6">
+                    <label><input type="radio" id="Flamingo" name="Luft" value="Flamingo/T1F4" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Flamingo</label>
+                </div>
+            </div>
+            @*Frage5*@
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Deutschland - Berlin <br /> Monaco - ?</h5>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Madrid" name="Monaco" value="Madrid/T1F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Madrid</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Monaco" name="Monaco" value="Monaco/T1F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Monaco</label>
+                </div>
+                <div class="col-md-2">
+                    <label><input type="radio" id="Port Vila" name="Monaco" value="Port Vila/T1F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Port Vila</label>
+                </div>
+                <div class="col-md-6">
+                    <label><input type="radio" id="Manama" name="Monaco" value="Manama/T1F5" @onchange="SelectionChanged" checked=@(antwort.Equals(StringComparison.OrdinalIgnoreCase)) /> Manama</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+                    <NavLink href="EntscheidungsfragenStartseite">
+                        <button class="button" @onclick="StoppeStoppuhr">Nächstes Thema</button>
+                    </NavLink>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@code{
+    private Stoppuhr stoppuhr;
+    private Themengebiete themengebiet = new Themengebiete();
+
+    private bool halbzeit = false;
+
+    private string antwort = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        themengebiet.titel = "Beziehungsfragen";
+
+        stoppuhr = await stoppuhrService.starteStoppuhrAsync();
+
+        stoppuhr.timer.Elapsed += OnElapsedEvent;
+    }
+
+    private void OnElapsedEvent(Object source, ElapsedEventArgs e)
+    {
+        //if(halbzeit == false)
+        //{
+        //    stoppuhr.timer.
+
+        //}
+
+        naechstesThema().Wait();
+    }
+
+    private async Task naechstesThema()
+    {
+        await InvokeAsync(() =>
+        {
+            ThemaHinzufuegen();
+
+            navigationManager.NavigateTo("EntscheidungsfragenStartseite", true);
+
+            StateHasChanged();
+        });
+    }
+
+    private void SelectionChanged(ChangeEventArgs args)
+    {
+        string[] splitAntwort;
+        Frage frage = new Frage();
+
+        antwort = args.Value.ToString();
+
+        splitAntwort = antwort.Split("/");
+
+        frage.antwort = splitAntwort[0];
+        frage.ID = splitAntwort[1];
+
+        themengebiet.fragen.Add(new Frage()
+        {
+            antwort = frage.antwort,
+            ID = frage.ID
+        });
+    }
+
+    private void ThemaHinzufuegen()
+    {
+        eignungstest.themengebiete.Add(themengebiet);
+    }
+
+    private void StoppeStoppuhr()
+    {
+        stoppuhr.stoppeStoppuhr();
+
+        eignungstest.themengebiete.Add(themengebiet);
+    }
+}
+

@@ -6,10 +6,9 @@
 
 @inject Eignungstest eignungstest
 @inject NavigationManager navMan
-
 @*<EditForm Model="@starship" OnInvalidSubmit="@HandleValidSubmit">*@
-<EditForm Model="@identifikationsNr" >
-<DataAnnotationsValidator/>
+<EditForm Model="@identifikationsNr">
+    <DataAnnotationsValidator />
     <div class="row">
         <div class="col-md-12">
             <h1>Willkommen bei Ihrem Eignungstest</h1>
@@ -17,9 +16,9 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            Bitte geben Sie Ihre 7-stellige Identifikationsnummer an: <br />     
-            <InputText @bind-Value="identifikationsNr.IDNummer" class="form-control" id="IDNummer" placeholder="Identifikationsnummer"/>
-                <ValidationMessage For="() => identifikationsNr.IDNummer"></ValidationMessage>
+            Bitte geben Sie Ihre 7-stellige Identifikationsnummer an: <br />
+            <InputText @bind-Value="identifikationsNr.IDNummer" class="form-control" id="IDNummer" placeholder="Identifikationsnummer" />
+            <ValidationMessage For="() => identifikationsNr.IDNummer"></ValidationMessage>
         </div>
     </div>
     <div class="row">
@@ -46,7 +45,7 @@
     </div>
     <div class="row">
         <div class="col-md-10">
-            <input type="submit" class="button" value="Test starten" @onclick="HandleValidSubmit" />        
+            <input type="submit" class="button" value="Test starten" @onclick="HandleValidSubmit" />
         </div>
     </div>
 </EditForm>
@@ -57,7 +56,7 @@
 
     void HandleValidSubmit()
     {
-        if(pruefeID(identifikationsNr.IDNummer) == true)
+        if (pruefeID(identifikationsNr.IDNummer) == true)
         {
             navMan.NavigateTo("BeziehungsfragenStartseite");
         }
@@ -69,12 +68,12 @@
 
     private bool pruefeID(string ident)
     {
-        if(ident == null)
+        if (ident == null)
         {
             ident = "default";
         }
 
-        if(ident.Length == 7 && ident.All(char.IsDigit) == true)
+        if (ident.Length == 7 && ident.All(char.IsDigit) == true)
         {
             return true;
         }
