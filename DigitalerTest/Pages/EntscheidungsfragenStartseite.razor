@@ -1,15 +1,47 @@
 ﻿@page "/EntscheidungsfragenStartseite"
 
-@using DigitalerTest.Data
-
-@inject NavigationManager navigationManager
-@inject StoppuhrService stoppuhrService
-
 <h3>Testanweisung Entscheidungsfragen</h3>
+<div class="row">
+    <div class="col-md-12">
+        Sie erhalten Fragen zu verschiedenen Themengebieten. <br />
+        Ihre Aufgabe ist es, dieses durch Anwenden Ihrer Allgemeinkenntnisse zu lösen und Ihre Antwort anzugeben.
+    </div>
+    <div class="col-md-12">
+        <h3 class="text-danger">Achtung!</h3>
+    </div>
+    <div class="col-md-12">
+        Es ist immer nur eine Möglichkeit richtig, demnach müssen Sie sich für eine Antwortmöglichkeit entscheiden. <br />
+        Sie haben für diesen Test 10 Minuten Zeit. Die Zeit läuft automatisch ab. <br />
+        Falls Sie nicht alle Fragen in der vorgegebenen Zeit beantworten können, werden unbeantwortete Fragen als Fehler gewertet.
+    </div>
+</div>
 
-<p>abcde</p>
-
-<NavLink href="Entscheidungsfragen">
-    <button class="btn btn-dark">Nächstes Thema</button>
-</NavLink>
-
+<div class="grid-container">
+    <div class="radiobutton">
+        <div class="row">
+            <div class="col-md-12">
+                <h5>Beispiel:</h5> <br />
+                An welchem Tag feiern die Bürger Deutschlands den Tag der deutschen Einheit?
+            </div>
+            <div class="col-md-2">
+                <label><input type="radio" checked /> 03. Oktober</label>
+            </div>
+            <div class="col-md-2">
+                <label><input type="radio" disabled /> 1. Mai</label>
+            </div>
+            <div class="col-md-2">
+                <label><input type="radio" disabled /> 30. Oktober</label>
+            </div>
+            <div class="col-md-6">
+                <label><input type="radio" disabled /> 26. Dezember</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <NavLink href="Entscheidungsfragen">
+                <button class="button">Testbeginn</button>
+            </NavLink>
+        </div>
+    </div>
+</div>

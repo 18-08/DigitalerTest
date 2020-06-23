@@ -1,17 +1,25 @@
 ﻿@page "/"
-@inject NavigationManager navigationsManager
 
 @using DigitalerTest.Data
+@using System.ComponentModel.DataAnnotations;
+@using System
 
+@inject Eignungstest eignungstest
+@inject NavigationManager navMan
+
+@*<EditForm Model="@starship" OnInvalidSubmit="@HandleValidSubmit">*@
+<EditForm Model="@identifikationsNr" >
+<DataAnnotationsValidator/>
     <div class="row">
         <div class="col-md-12">
             <h1>Willkommen bei Ihrem Eignungstest</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            Bitte geben Sie Ihre Identifikationsnummer an! <br />
-            <input type="text" pattern="[0-9]{4}" required placeholder="Identifikationsnummer" />
+        <div class="col-md-6">
+            Bitte geben Sie Ihre 7-stellige Identifikationsnummer an: <br />     
+            <InputText @bind-Value="identifikationsNr.IDNummer" class="form-control" id="IDNummer" placeholder="Identifikationsnummer"/>
+                <ValidationMessage For="() => identifikationsNr.IDNummer"></ValidationMessage>
         </div>
     </div>
     <div class="row">
@@ -19,28 +27,64 @@
             <h3 class="text-danger">Achtung!</h3>
         </div>
         <div class="col-md-12">
-            Bitte beachten Sie folgende Hinweise.
+            Bitte beachten Sie folgende Hinweise:
         </div>
         <div class="col-md-12">
             <ul>
-                <li>1.</li>
-                <li>2.</li>
-                <li>3.</li>
-                <li>4.</li>
-                <li>5.</li>
+                <li>Bitte geben Sie Ihre ausgehändigte Identifikationsnummer an. Beachten Sie hierbei auf die korrekte Schreibweise Ihrer Nummer.</li>
+                <li>Bevor Sie mit einem Themengebiet beginnen, erhalten Sie eine Unterweisung mit Beispielen zum besseren Verständnis.</li>
+                <li>Für jedes Themengebiet haben Sie eine Zeitvorgabe. Diese erfahren Sie vor dem jeweiligen Test.</li>
+                <li>Falls Sie dennoch Fragen haben, wenden Sie sich bitte an Ihren Testleiter.</li>
+                <li>Bitte überprüfen Sie nach Beendigung des Testgebietes Ihre Fragen. Sobald Sie in den nächsten Test gelangen, sind Änderungen nicht mehr möglich.</li>
+                <li>Ihre Antworten werden am Ende automatisch gespeichert.</li>
+                <li>Weitere Infos zum Datenschutz finden Sie hier. @*Link einbinden!*@ </li>
             </ul>
+        </div>
+        <div>
+            <h3>Wir wünschen Ihnen viel Erfolg!</h3>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            <NavLink href="BeziehungsfragenStartseite">
-                    <button class="btn btn-dark">Test beginnen!</button>
-            </NavLink>
+        <div class="col-md-10">
+            <input type="submit" class="button" value="Test starten" @onclick="HandleValidSubmit" />        
         </div>
     </div>
+</EditForm>
 
-@code{
-    public Eignungstest eignungstest = new Eignungstest();
+@code
+{
+    IdentifikationsNr identifikationsNr = new IdentifikationsNr();
+
+    void HandleValidSubmit()
+    {
+        if(pruefeID(identifikationsNr.IDNummer) == true)
+        {
+            navMan.NavigateTo("BeziehungsfragenStartseite");
+        }
+        // Save the data
+
+        //sichern der Ident Nummer
+        //eignungstest.identifier = Identifier;
+    }
+
+    private bool pruefeID(string ident)
+    {
+        if(ident == null)
+        {
+            ident = "default";
+        }
+
+        if(ident.Length == 7 && ident.All(char.IsDigit) == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }
+
 
 

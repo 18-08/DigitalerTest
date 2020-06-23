@@ -7,6 +7,8 @@ namespace DigitalerTest.Data
 {
     public class Eignungstest
     {
+        public int identifier { get; set; }
+
         public List<Themengebiete> themengebiete = new List<Themengebiete>();
     }
 }

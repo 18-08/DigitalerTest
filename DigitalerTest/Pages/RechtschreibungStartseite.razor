@@ -1,46 +1,51 @@
 ﻿@page "/RechtschreibungStartseite"
 
-@using DigitalerTest.Data
-
-@inject NavigationManager navigationManager
-@inject StoppuhrService stoppuhrService
-
 <h3>Testanweisung Rechtschreibung</h3>
 
 <form>
-    <div>
-        <h5>
-            Gegeben ist ein Wort, wo die richtige Schreibung herausgefunden werden muss. <br /><br />
-            Beispiel:
-        </h5>
+    <div class="row">
+        <div class="col-md-12">
+            Gegeben sind 4 verschiedene Schreibweisen eines Wortes. <br />
+            Ihre Aufgabe ist es, diese durch Anwenden Ihrer Rechschreibungs-Kenntnisse zu lösen und die richtige Antwort anzugeben. 
+        </div>
+        <div class="col-md-12">
+            <h3 class="text-danger">Achtung!</h3>
+        </div>
+        <div class="col-md-12">
+            Es ist immer nur eine Möglichkeit richtig, demnach müssen Sie sich für eine Antwortmöglichkeit entscheiden. <br />
+            Sie haben für diesen Test 10 Minuten Zeit. Die Zeit läuft automatisch ab. <br />
+            Falls Sie nicht alle Fragen in der vorgegebenen Zeit beantworten können, werden unbeantwortete Fragen als Fehler gewertet.
+        </div>
     </div>
 
     <div class="grid-container">
         <div class="radiobutton">
             @* Beispielfrage *@
             <div class="row">
-                <div class="col-md-3">
-                    <label><input type="radio" id="Griesgram" name="Griesgram" value="Griesgram" checked /> Griesgram</label>
+                <div class="col-md-12">
+                    <h5>Beispiel:</h5> <br />
+                    Bitte wählen Sie die richtige Schreibweise.
                 </div>
-                <div class="col-md-3">
-                    <p>oder</p>
+                <div class="col-md-2">
+                    <label><input type="radio" checked /> Griesgram</label>
                 </div>
-                <div class="col-md-3">
-                    <label><input type="radio" id="Griessgram" name="Griesgram" value="Griessgram" /> Griessgram</label>
+                <div class="col-md-2">
+                    <label><input type="radio" disabled /> Griesgramm</label>
                 </div>
-                <div class="col-md-3">
-                    <p>?</p>
+                <div class="col-md-2">
+                    <label><input type="radio" disabled /> Griessgram</label>
+                </div>
+                <div class="col-md-6">
+                    <label><input type="radio" disabled /> Grießgram</label>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-10">
+                <NavLink href="Rechtschreibung">
+                    <button class="button">Testbeginn</button>
+                </NavLink>
+            </div>
+        </div>
     </div>
-
-    <p>
-        Für den folgenden Test haben Sie ... Sekunden/Minuten Zeit. Die Zeit läuft automatisch ab. Falls Sie nicht alle Fragen in der vorgegebenen Zeit beantworten können,
-        werden unbeantwortete Fragen als 0 gewertet.
-    </p>
-
-    <NavLink href="Rechtschreibung">
-        <button class="btn btn-dark">Nächstes Thema</button>
-    </NavLink>
 </form>
