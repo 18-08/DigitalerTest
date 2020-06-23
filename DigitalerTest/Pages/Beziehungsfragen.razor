@@ -6,6 +6,7 @@
 @inject NavigationManager navigationManager
 @inject StoppuhrService stoppuhrService
 @inject Eignungstest eignungstest
+@inject IToastService toastService
 
 <h3>Beziehungsfragen</h3>
 
@@ -132,13 +133,19 @@
 
     private void OnElapsedEvent(Object source, ElapsedEventArgs e)
     {
-        //if(halbzeit == false)
-        //{
-        //    stoppuhr.timer.
+        if (halbzeit == false)
+        {
+            halbzeit = true;
 
-        //}
+            toastService.ShowInfo("Die letzten 5 Minuten haben begonnen.");
+        }
+        else
+        {
+            stoppuhr.timer.AutoReset = false;
+            stoppuhr.stoppeStoppuhr();
+            naechstesThema().Wait();
+        }
 
-        naechstesThema().Wait();
     }
 
     private async Task naechstesThema()

@@ -6,6 +6,7 @@
 @inject NavigationManager navigationManager
 @inject StoppuhrService stoppuhrService
 @inject Eignungstest eignungstest
+@inject IToastService toastService
 
 <h3>Entscheidungsfragen</h3>
 
@@ -119,6 +120,8 @@
 
     private string antwort = "";
 
+    private bool halbzeit = false;
+
     protected override async Task OnInitializedAsync()
     {
         themengebiet.titel = "Entscheidungsfragen";
@@ -130,8 +133,19 @@
 
     private void OnElapsedEvent(Object source, ElapsedEventArgs e)
     {
-        stoppuhr.stoppeStoppuhr();
-        naechstesThema().Wait();
+        if (halbzeit == false)
+        {
+            halbzeit = true;
+
+            toastService.ShowInfo("Die letzten 5 Minuten haben begonnen.");
+        }
+        else
+        {
+            stoppuhr.timer.AutoReset = false;
+            stoppuhr.stoppeStoppuhr();
+            naechstesThema().Wait();
+        }
+
     }
 
     private async Task naechstesThema()

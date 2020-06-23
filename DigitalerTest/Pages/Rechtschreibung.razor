@@ -8,6 +8,7 @@
 @inject StoppuhrService stoppuhrService
 @inject NavigationManager navigationManager
 @inject Eignungstest eignungstest 
+@inject IToastService toastService
 
 <h3>Rechtschreibung</h3>
 
@@ -201,6 +202,8 @@
 
     private string antwort = "";
 
+    private bool halbzeit = false;
+
     protected override async Task OnInitializedAsync()
     {
         themengebiet.titel = "Rechtschreibung";
@@ -219,9 +222,19 @@
 
     private void OnElapsedEvent(Object source, ElapsedEventArgs e)
     {
-        stoppuhr.stoppeStoppuhr();
-        naechstesThema().Wait();
-        SpeicherDaten();
+        if (halbzeit == false)
+        {
+            halbzeit = true;
+
+            toastService.ShowInfo("Die letzten 5 Minuten haben begonnen.");
+        }
+        else
+        {
+            stoppuhr.timer.AutoReset = false;
+            stoppuhr.stoppeStoppuhr();
+            naechstesThema().Wait();
+            SpeicherDaten();
+        }
     }
 
     private async Task naechstesThema()
