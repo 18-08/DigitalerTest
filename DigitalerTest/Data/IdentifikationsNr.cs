@@ -11,7 +11,7 @@ namespace DigitalerTest.Data
     public class IdentifikationsNr
     {
         [Required]
-        [RegularExpression("[0-9]{7,7}", ErrorMessage = "Bitte überprüfen Sie ihre Identifikationsnummer!")]
+        [RegularExpression("[0-9]{7,7}", ErrorMessage = "Bitte überprüfen Sie Ihre Identifikationsnummer!")]
         
         public string IDNummer { get; set; }
 
