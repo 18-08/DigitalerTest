@@ -6,8 +6,15 @@
 
 @inject Eignungstest eignungstest
 @inject NavigationManager navMan
-@*<EditForm Model="@starship" OnInvalidSubmit="@HandleValidSubmit">*@
-<EditForm Model="@identifikationsNr">
+
+<div class="row px-4">
+    <div class="col-md-12 more" >
+        <a href="Impressum">Impressum</a>
+        <a href="Datenschutz">Datenschutz</a>
+    </div>
+</div>
+
+<EditForm Model="@identifikationsNr" autocomplete="off">
     <DataAnnotationsValidator />
     <div class="row">
         <div class="col-md-12">
@@ -17,7 +24,7 @@
     <div class="row">
         <div class="col-md-6">
             Bitte geben Sie Ihre 7-stellige Identifikationsnummer an: <br />
-            <InputText @bind-Value="identifikationsNr.IDNummer" class="form-control" id="IDNummer" placeholder="Identifikationsnummer" />
+            <InputText @bind-Value="identifikationsNr.IDNummer" class="form-control" id="IDNummer" placeholder="Identifikationsnummer" autocomplete="off"/>
             <ValidationMessage For="() => identifikationsNr.IDNummer"></ValidationMessage>
         </div>
     </div>
@@ -59,6 +66,7 @@
         if (pruefeID(identifikationsNr.IDNummer) == true)
         {
             navMan.NavigateTo("BeziehungsfragenStartseite");
+            eignungstest.identifier = identifikationsNr.IDNummer;
         }
         // Save the data
 
