@@ -7,30 +7,30 @@
     </button>
 </div>
 
-<div class="@NavMenuCssClass" @onclick="SucheAktivenLink">
+<div class="@NavMenuCssClass">
     <ul class="nav flex-column">
         <li class="nav-item px-3">
-            <NavLink class="" href="" Match="NavLinkMatch.All">
+            <NavLink href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span>Startseite
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="@id_Beziehungsfragen" href="Beziehungsfragen">
+            <NavLink href="Beziehungsfragen">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> Beziehungsfragen
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="@id_Entscheidungsfragen" href="Entscheidungsfragen">
+            <NavLink href="Entscheidungsfragen">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> Entscheidungsfragen
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="@id_MathematischeKenntnisse" href="MathematischeKenntnisse">
+            <NavLink href="MathematischeKenntnisse">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> Mathematik
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="@id_Rechtschreibung" href="Rechtschreibung">
+            <NavLink href="Rechtschreibung">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> Rechtschreibung
             </NavLink>
         </li>
@@ -38,56 +38,14 @@
 </div>
 
 @code {
-    public int i;
 
     private bool collapseNavMenu = true;
-    public string id_Rechtschreibung = "";
-    public string id_Beziehungsfragen = "";
-    public string id_Entscheidungsfragen = "";
-    public string id_MathematischeKenntnisse = "";
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
-    }
-
-    private void SucheAktivenLink()
-    {
-        string temp = "";
-        temp = MyNavigationManager.Uri;
-
-        switch (temp)
-        {
-            case "https://localhost:44321/Rechtschreibung":
-                id_Rechtschreibung = "active";
-                id_Beziehungsfragen = "disabled";
-                id_Entscheidungsfragen = "disabled";
-                id_MathematischeKenntnisse = "disabled";
-                break;
-
-            case "https://localhost:44321/Beziehungsfragen":
-                id_Rechtschreibung = "disabled";
-                id_Beziehungsfragen = "active";
-                id_Entscheidungsfragen = "disabled";
-                id_MathematischeKenntnisse = "disabled";
-                break;
-
-            case "https://localhost:44321/Entscheidungsfragen":
-                id_Rechtschreibung = "disabled";
-                id_Beziehungsfragen = "disabled";
-                id_Entscheidungsfragen = "active";
-                id_MathematischeKenntnisse = "disabled";
-                break;
-
-            case "https://localhost:44321/MathematischeKenntnisse":
-                id_Rechtschreibung = "disabled";
-                id_Beziehungsfragen = "disabled";
-                id_Entscheidungsfragen = "disabled";
-                id_MathematischeKenntnisse = "active";
-                break;
-        }
     }
 
     protected override void OnInitialized()
