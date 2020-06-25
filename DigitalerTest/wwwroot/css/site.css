@@ -39,6 +39,14 @@ h2{
         outline:none;
     }
 
+.more{
+    float:right;
+}
+    .more a {
+        margin: 8px;
+        float:right;
+    }
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
