@@ -12,7 +12,6 @@ namespace DigitalerTest.Data
     {
         [Required(ErrorMessage = "Dieses Feld darf nicht leer sein!")]
         [RegularExpression("[0-9]{7,7}", ErrorMessage = "Bitte überprüfen Sie Ihre Identifikationsnummer!")]
-        
         public string IDNummer { get; set; }
 
         public Expression<Func<IdentifikationsNr>> For { get; set; }

@@ -47,15 +47,4 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
-
-    protected override void OnInitialized()
-    {
-        MyNavigationManager.LocationChanged += OnLocationChanges;
-    }
-
-    private void OnLocationChanges(object sender, LocationChangedEventArgs e)
-    {
-
-    }
-
 }
